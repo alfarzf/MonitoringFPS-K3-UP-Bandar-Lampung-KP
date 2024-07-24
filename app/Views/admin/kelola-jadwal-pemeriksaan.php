@@ -1,7 +1,7 @@
 <?= $this->extend('template/template_admin')?>
 <?= $this->section('content')?>
 
-  <main id="main" class="main">
+<main id="main" class="main">
 
   <div class="pagetitle">
     <h1>Jadwal Pemeriksaan Alat</h1>
@@ -42,10 +42,13 @@
                   <option value="">PLTA Batu Tegi</option>
                 </select>
               </div>
+            </div>
           </div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambahJadwal">
-              Tambah Jadwal Pemeriksaan
-            </button>
+
+          <div class="btn-container">
+              <button type="button" class="btn btn-primary btn-smaller" data-bs-toggle="modal" data-bs-target="#modalTambahJadwal">
+                 Tambah Jadwal Pemeriksaan
+              </button>
           </div>
       
           <table>
@@ -117,6 +120,306 @@
                     class="fas fa-edit"></i></button>
                 </button></td>
             </tr>
+            <tr>
+              <td>7.</td>
+              <td>Emergency Diesel Pump</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>8.</td>
+              <td>Emergency Sea Water Pump</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>9.</td>
+              <td>Portable Pump</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>10.</td>
+              <td>Sprinkle System</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>11.</td>
+              <td>Gas Sppression system (CO2/Clean Agent)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>12.</td>
+              <td>Foam System</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>13.</td>
+              <td>Water Spray/Water Mist</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>14.</td>
+              <td>Chemical Dust Suppression</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>15.</td>
+              <td>Fire Prevention System (Sergi)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>16.</td>
+              <td>Panel Alarm System</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>17.</td>
+              <td>Heat Detector</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>18.</td>
+              <td>Smoke Detector</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>19.</td>
+              <td>Flame Detector</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>20.</td>
+              <td>Gas Detector</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>21.</td>
+              <td>Vaccum Dust Collector</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>22.</td>
+              <td>Vaccum Truck</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>23.</td>
+              <td>Fire Truck (Mobil Damkar)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>24.</td>
+              <td>Self-Contain Breathing Apparatus (SCBA)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>25.</td>
+              <td>Self-Contain Breathing Apparatus (SCBA)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>26.</td>
+              <td>Ambulance</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>27.</td>
+              <td>Ambulance</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>28.</td>
+              <td>Tangga Kebakaran</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>29.</td>
+              <td>Tempat Berhimpun/ Assembly Point</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>30.</td>
+              <td>Lampu Penerangan Darurat</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>31.</td>
+              <td>Tanda Petunjuk Arah Jalan Keluar</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>32.</td>
+              <td>Pressurized Fan</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>33.</td>
+              <td>Smoke Extract Fan dan Intake Fan</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>34.</td>
+              <td>Air Handling Unit (AHU)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>35.</td>
+              <td>Fire Damper</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>36.</td>
+              <td>Fire Damper</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
           </table>
         </div>
       
@@ -149,7 +452,9 @@
                   <label for="nama_petugas" class="form-label">Nama Petugas</label>
                   <input type="text" class="form-control" id="nama_petugas" placeholder="">
                 </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <div class="btn-container btn-smaller">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
               </form>
             </div>
           </div>
@@ -183,7 +488,9 @@
                   <label for="nama_petugas" class="form-label">Nama Petugas</label>
                   <input type="text" class="form-control" id="nama_petugas" placeholder="">
                 </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <div class="btn-container btn-smaller">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
               </form>
             </div>
           </div>

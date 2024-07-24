@@ -61,21 +61,21 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('/')?>">
+            <a class="nav-link" href="<?= base_url('/tl')?>">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="laporan-data-alat.html">
+            <a class="nav-link" href="<?= base_url('/tl/laporan')?>">
                 <i class="bi bi-menu-button-wide"></i>
                 <span>Laporan Data Alat</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="jadwal-pemeriksaan.html">
+            <a class="nav-link" href="<?= base_url('/tl/jadwal')?>">
                 <i class="bi bi-layout-text-window-reverse"></i><span>Jadwal Pemeriksaan Alat</span></i>
             </a>
         </li>
@@ -87,12 +87,12 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="data-petugas.html">
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="<?php //base_url('/tl/petugas')?>">
                 <i class="bi bi-person"></i>
                 <span>Daftar Petugas</span>
             </a>
-        </li>
+        </li> -->
     </ul>
 </aside><!-- End Sidebar-->
 

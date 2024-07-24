@@ -1,49 +1,49 @@
 <?= $this->extend('template/template_petugas')?>
 <?= $this->section('content')?>
 
-  <main id="main" class="main">
+<main id="main" class="main">
 
-  <div class="pagetitle">
-    <h1>Laporan Kondisi Alat</h1>
-  </div>
-    </div><!-- End Page Title -->
+<div class="pagetitle">
+  <h1>Laporan Kondisi Alat</h1>
+</div>
+  </div><!-- End Page Title -->
 
-    <section class="section">
-        <div class="card-table table">
-          <h6>Monitoring Kesiapan Fire Protection System Kantor UP Bandar Lampung</h6>
-          <div class="filter-container">
-            <div id="filter_div">
-              <label for="bulan-filter">Waktu: </label>
-              <select id="bulan-filter">
-                <option value="">Januari</option>
-                <option value="">Februari</option>
-                <option value="">Maret</option>
-                <option value="">April</option>
-                <option value="">Mei</option>
-                <option value="">Juni</option>
-                <option value="">Juli</option>
-                <option value="">Agustus</option>
-                <option value="">September</option>
-                <option value="">Oktober</option>
-                <option value="">November</option>
-                <option value="">Desember</option>
-              </select>
-            </div>
+  <section class="section">
+      <div class="card-table table">
+        <h6>Monitoring Kesiapan Fire Protection System Kantor UP Bandar Lampung</h6>
+        <div class="filter-container">
+          <div id="filter_div">
+            <label for="bulan-filter">Waktu: </label>
+            <select id="bulan-filter">
+              <option value="">Januari</option>
+              <option value="">Februari</option>
+              <option value="">Maret</option>
+              <option value="">April</option>
+              <option value="">Mei</option>
+              <option value="">Juni</option>
+              <option value="">Juli</option>
+              <option value="">Agustus</option>
+              <option value="">September</option>
+              <option value="">Oktober</option>
+              <option value="">November</option>
+              <option value="">Desember</option>
+            </select>
           </div>
-        
-          <table>
-            <tr class="header1">
-              <th>No.</th>
-              <th>Nama Petugas</th>
-              <th>Nama Alat</th>
-              <th>Jadwal Pemeriksaan</th>
-              <th>Kondisi Baik</th>
-              <th>Kondisi Buruk</th>
-              <th>Total Alat Keseluruhan</th>
-              <th>Keterangan</th>
-              <th>Status</th>
-              <th>Aksi</th>
-            </tr>
+        </div>
+      
+        <table>
+          <tr class="header1">
+            <th>No.</th>
+            <th>Nama Petugas</th>
+            <th>Nama Alat</th>
+            <th>Jadwal Pemeriksaan</th>
+            <th>Kondisi Baik</th>
+            <th>Kondisi Buruk</th>
+            <th>Total Alat Keseluruhan</th>
+            <th>Keterangan</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
             <?php $no=1; foreach($laporan as $lapor){ ?>
             <tr>
               <td><?= $no++ ?></td>
@@ -117,15 +117,17 @@
                       </div>
                       <div class="mb-3">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="belum_periksa" id="belum_periksa" value="belum_periksa">
+                          <input class="form-check-input" type="radio" name="periksa_status" id="belum_periksa" value="belum_periksa">
                           <label class="form-check-label" for="belum_periksa">Belum Diperiksa</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="sudah_periksa" id="sudah_periksa" value="sudah_periksa">
+                          <input class="form-check-input" type="radio" name="periksa_status" id="sudah_periksa" value="sudah_periksa">
                           <label class="form-check-label" for="sudah_periksa">Sudah Diperiksa</label>
                         </div>
                       </div>
-                      <button type="submit" class="btn btn-primary">Simpan</button>
+                      <div class="btn-container btn-smaller">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                      </div>
                     </form>
                   </div>
                 </div>

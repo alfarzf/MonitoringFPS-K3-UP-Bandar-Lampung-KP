@@ -1,52 +1,53 @@
 <?= $this->extend('template/template_admin')?>
 <?= $this->section('content')?>
-  <main id="main" class="main">
+<main id="main" class="main">
 
-  <div class="pagetitle">
-    <h1>Kelola Data Petugas</h1>
-  </div>
-    </div><!-- End Page Title -->
+<div class="pagetitle">
+  <h1>Kelola Data Petugas</h1>
+</div>
+  </div><!-- End Page Title -->
 
-    <section class="section">
-      <div class="container">
-      
-        <div class="card-table table">
-          <h6>Tabel Data Petugas </h6>
-          <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalTambahPetugas">
-            Tambah Data Petugas
-          </button>
-          <table data-petugas>
-            <tr>
-              <th>No.</th>
-              <th>Nama Petugas</th>
-              <th>NID</th>
-              <th>Unit Kerja</th>
-              <th>Psssword</th>
-              <th>Aksi</th>
-            </tr>
-            <tr>
-              <td>1.</td>
-              <td>Nama orang</td>
-              <td>1234567890</td>
-              <td>Kantor UP Bandar Lampung</td>
-              <td>************</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditPetugas"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusPetugas"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      
+  <section class="section">
+    <div class="container">
+    
+      <div class="card-table table">
+        <h6>Tabel Data Petugas </h6>
+            <div class="btn-container">
+              <button type="button" class="btn btn-primary btn-smaller" data-bs-toggle="modal" data-bs-target="#modalTambahPetugas">
+                Tambah Petugas
+              </button>
+            </div>
+        <table data-petugas>
+          <tr>
+            <th>No.</th>
+            <th>Nama Petugas</th>
+            <th>NID</th>
+            <th>Unit Kerja</th>
+            <th>Psssword</th>
+            <th>Aksi</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>Nama orang</td>
+            <td>1234567890</td>
+            <td>Kantor UP Bandar Lampung</td>
+            <td>************</td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditPetugas"><i
+                  class="fas fa-edit"></i></button>
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusPetugas"><i
+                  class="fas fa-trash-alt"></i></button>
+              </button>
+            </td>
+          </tr>
+        </table>
       </div>
-    </section>
+    
+    </div>
+  </section>
 
-    <!-- Modal Tambah Petugas -->
-    <div class="modal fade" id="modalTambahPetugas" tabindex="-1" aria-labelledby="modalTambahAlatPetugas" aria-hidden="true">
+  <div class="modal fade" id="modalTambahPetugas" tabindex="-1" aria-labelledby="modalTambahAlatPetugas" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -77,7 +78,9 @@
                   <label for="password" class="form-label">Kata Sandi</label>
                   <input type="text" class="form-control" id="password" placeholder="">
                 </div>
-                <button type="submit" class="btn btn-primary">Tambah Petugas</button>
+                <div class="btn-container btn-smaller">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
               </form>
             </div>
           </div>
@@ -117,7 +120,9 @@
                       <label for="password" class="form-label">Kata Sandi</label>
                       <input type="text" class="form-control" id="password" placeholder="">
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="btn-container btn-smaller">
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
                   </form>
             </div>
           </div>

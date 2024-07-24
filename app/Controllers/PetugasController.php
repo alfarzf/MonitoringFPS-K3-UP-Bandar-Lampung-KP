@@ -47,4 +47,6 @@ class PetugasController extends BaseController
         // dd($data);
         return view('petugas/jadwal-pemeriksaan', $data);
     }
+
+    
 }

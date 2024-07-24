@@ -831,12 +831,10 @@ th, td{
 
 .lokasi p {
   margin-left: 0;
-  /* Adjust margin as needed */
 }
 
 .lokasi h6 {
   margin-bottom: 1rem;
-  /* Adjust as needed */
 }
 
 .lokasi {
@@ -845,5 +843,22 @@ th, td{
 
 .lokasi p {
   margin-left: 0;
-  /* Pastikan margin kiri adalah 0 untuk rata kiri */
+}
+
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+.btn-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.btn-container button {
+  margin-top: 0px;
+}
+
+.btn-smaller {
+padding: 5px 10px;
+font-size: 14px;
 }
