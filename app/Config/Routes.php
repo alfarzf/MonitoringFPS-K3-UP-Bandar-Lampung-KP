@@ -31,3 +31,8 @@ $routes->get('/insert', [TlController::class ,'insert_data_alat']);
 $routes->get('/insert_laporan', [TlController::class ,'insert_data_laporan']);
 
 // Admin
+$routes->get('/admin', [AdminController::class ,'index']);
+$routes->get('/admin/dashboard', [AdminController::class ,'index']);
+$routes->get('/admin/alat', [AdminController::class ,'alat']);
+$routes->get('/admin/petugas', [AdminController::class ,'petugas']);
+$routes->get('/admin/jadwal', [AdminController::class ,'jadwal']);

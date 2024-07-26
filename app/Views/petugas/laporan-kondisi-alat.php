@@ -3,47 +3,47 @@
 
 <main id="main" class="main">
 
-<div class="pagetitle">
-  <h1>Laporan Kondisi Alat</h1>
-</div>
-  </div><!-- End Page Title -->
+  <div class="pagetitle">
+    <h1>Laporan Kondisi Alat</h1>
+  </div>
+    </div><!-- End Page Title -->
 
-  <section class="section">
-      <div class="card-table table">
-        <h6>Monitoring Kesiapan Fire Protection System Kantor UP Bandar Lampung</h6>
-        <div class="filter-container">
-          <div id="filter_div">
-            <label for="bulan-filter">Waktu: </label>
-            <select id="bulan-filter">
-              <option value="">Januari</option>
-              <option value="">Februari</option>
-              <option value="">Maret</option>
-              <option value="">April</option>
-              <option value="">Mei</option>
-              <option value="">Juni</option>
-              <option value="">Juli</option>
-              <option value="">Agustus</option>
-              <option value="">September</option>
-              <option value="">Oktober</option>
-              <option value="">November</option>
-              <option value="">Desember</option>
-            </select>
+    <section class="section">
+        <div class="card-table table">
+          <h6>Monitoring Kesiapan Fire Protection System Kantor UP Bandar Lampung Bandar Lampung Tahun 2024</h6>
+          <div class="filter-container">
+            <div id="filter_div">
+              <label for="bulan-filter">Waktu: </label>
+              <select id="bulan-filter">
+                <option value="">Januari</option>
+                <option value="">Februari</option>
+                <option value="">Maret</option>
+                <option value="">April</option>
+                <option value="">Mei</option>
+                <option value="">Juni</option>
+                <option value="">Juli</option>
+                <option value="">Agustus</option>
+                <option value="">September</option>
+                <option value="">Oktober</option>
+                <option value="">November</option>
+                <option value="">Desember</option>
+              </select>
+            </div>
           </div>
-        </div>
-      
-        <table>
-          <tr class="header1">
-            <th>No.</th>
-            <th>Nama Petugas</th>
-            <th>Nama Alat</th>
-            <th>Jadwal Pemeriksaan</th>
-            <th>Kondisi Baik</th>
-            <th>Kondisi Buruk</th>
-            <th>Total Alat Keseluruhan</th>
-            <th>Keterangan</th>
-            <th>Status</th>
-            <th>Aksi</th>
-          </tr>
+        
+          <table>
+            <tr class="header1">
+              <th>No.</th>
+              <th>Nama Petugas</th>
+              <th>Nama Alat</th>
+              <th>Jadwal Pemeriksaan</th>
+              <th>Kondisi Baik</th>
+              <th>Kondisi Rusak</th>
+              <th>Total Alat Keseluruhan</th>
+              <th>Keterangan</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
             <?php $no=1; foreach($laporan as $lapor){ ?>
             <tr>
               <td><?= $no++ ?></td>
@@ -63,11 +63,11 @@
               </button></td>
             </tr>
             <?php } ?>
-          </table>
+            </table>
           <br>
 </section>
 <div class="card chart">
-  <h6>Rata-Rata Kesiapan Alat Keselamatan UPDK Bandar Lampung Bulan Ini
+  <h6>Rata-Rata Kesiapan Alat Keselamatan UP Bandar Lampung Bulan Ini
   </h6>
   <canvas id="barchart3"></canvas>
 </div>
@@ -76,7 +76,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalLaporan">Laporan Hasil Monitoring Alat</h5>
+        <h5 class="modal-title" id="modalLaporan">Laporan Kondisi Alat</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -93,7 +93,7 @@
                         <input type="text" class="form-control" id="inama_alat" placeholder="">
                       </div>
                       <div class="col-md-15 mb-3">
-                        <label for="jadwal_periksa" class="form-label">Jadwal Pemeriksaan</label>
+                        <label for="jadwal_periksa" class="form-label">Tanggal Pemeriksaan</label>
                         <input type="text" class="form-control" id="jadwal_periksa" placeholder="">
                       </div>
                       <div class="row">
@@ -102,7 +102,7 @@
                           <input type="text" class="form-control" id="kondisi_baik">
                         </div>
                         <div class="col-md-3 mb-3">
-                          <label for="kondisi_buruk" class="form-label">Kondisi Buruk</label>
+                          <label for="kondisi_buruk" class="form-label">Kondisi Rusak</label>
                           <input type="text" class="form-control" id="kondisi_buruk">
                         </div>
                         <div class="col-md-3 mb-3">
@@ -113,18 +113,16 @@
                       <div class="col-md-15 mb-3">
                         <label for="keterangan" class="form-label">Keterangan</label>
                         <br>
-                        <textarea id="keterangan" name="keterangan" class="large-textarea"></textarea>
+                        <textarea id="keterangan" name="keterangan" class="large-textarea"  placeholder="Maksimal 500 karakter"></textarea>
                       </div>
-                      <div class="mb-3">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="periksa_status" id="belum_periksa" value="belum_periksa">
-                          <label class="form-check-label" for="belum_periksa">Belum Diperiksa</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="periksa_status" id="sudah_periksa" value="sudah_periksa">
-                          <label class="form-check-label" for="sudah_periksa">Sudah Diperiksa</label>
-                        </div>
-                      </div>
+                              <div class="mb-3">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                                  <label class="form-check-label" for="gridCheck">
+                                    Data yang dimasukan adalah benar
+                                  </label>
+                                </div>
+                              </div>
                       <div class="btn-container btn-smaller">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                       </div>

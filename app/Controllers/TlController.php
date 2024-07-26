@@ -26,12 +26,21 @@ class TlController extends BaseController
         return view('tl/dashboard-user', $data);
     }
     public function laporan(){
-
+        // $items = [1,2,3,4,5,6,7,8,9,10,11,12];
+        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
         $data = [
-            'title' => 'Laporan',
-            'laporan' => $this->alatModel->getDataLaporan($nama='APAT', $m=1)
+            'title' => 'Dashboard',
+            'alat' => [],
         ];
-        // dd($data['laporan']);
+        foreach ($alat as $item) {
+            $data['alat'][] = $this->alatModel->getDataLaporan($item, $m=1);
+        }
+
+        // $data = [
+        //     'title' => 'Laporan',
+        //     'laporan' => $this->alatModel->getDataLaporan($nama='APAT', $m=1)
+        // ];
+        // dd($data['alat']);
         return view('tl/laporan-data-alat', $data);
     }
 
@@ -64,7 +73,7 @@ class TlController extends BaseController
             $data=[
                 'id' => $no++,
                 'nama' => $al,
-                'jumlah' => rand(10, 30),
+                'jumlah' => rand(1, 20),
                 'lokasi' => $i
             ];
             // dd($al);
@@ -90,9 +99,9 @@ class TlController extends BaseController
             $data=[
                 'id_alat' => $da['id'],
                 'NID' => 123,
-                'tanggal_periksa' => '2024-01-09',
-                'jumlah_baik' => $da['jumlah'],
-                'jumlah_buruk' => 0,
+                'tanggal_periksa' => '2024-02-09',
+                'jumlah_baik' => $da['jumlah'] - 2,
+                'jumlah_buruk' => 2,
                 'catatan' => 'OKE Semua'
             ];
             // dd($al);

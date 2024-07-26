@@ -302,7 +302,7 @@
             </tr>
             <tr>
               <td>25.</td>
-              <td>Self-Contain Breathing Apparatus (SCBA)</td>
+              <td>Ambulance</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
               <td>Belum diperiksa</td>
@@ -322,16 +322,6 @@
             </tr>
             <tr>
               <td>27.</td>
-              <td>Ambulance</td>
-              <td>09/01/2024</td>
-              <td>Tim Kantor UPDK</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>28.</td>
               <td>Tangga Kebakaran</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -341,7 +331,7 @@
                 </button></td>
             </tr>
             <tr>
-              <td>29.</td>
+              <td>28.</td>
               <td>Tempat Berhimpun/ Assembly Point</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -351,7 +341,7 @@
                 </button></td>
             </tr>
             <tr>
-              <td>30.</td>
+              <td>29.</td>
               <td>Lampu Penerangan Darurat</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -361,7 +351,7 @@
                 </button></td>
             </tr>
             <tr>
-              <td>31.</td>
+              <td>30.</td>
               <td>Tanda Petunjuk Arah Jalan Keluar</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -371,7 +361,7 @@
                 </button></td>
             </tr>
             <tr>
-              <td>32.</td>
+              <td>31.</td>
               <td>Pressurized Fan</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -381,7 +371,7 @@
                 </button></td>
             </tr>
             <tr>
-              <td>33.</td>
+              <td>32.</td>
               <td>Smoke Extract Fan dan Intake Fan</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
@@ -391,8 +381,18 @@
                 </button></td>
             </tr>
             <tr>
-              <td>34.</td>
+              <td>33.</td>
               <td>Air Handling Unit (AHU)</td>
+              <td>09/01/2024</td>
+              <td>Tim Kantor UPDK</td>
+              <td>Belum diperiksa</td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+                    class="fas fa-edit"></i></button>
+                </button></td>
+            </tr>
+            <tr>
+              <td>34.</td>
+              <td>Fire Damper</td>
               <td>09/01/2024</td>
               <td>Tim Kantor UPDK</td>
               <td>Belum diperiksa</td>
@@ -410,24 +410,14 @@
                     class="fas fa-edit"></i></button>
                 </button></td>
             </tr>
-            <tr>
-              <td>36.</td>
-              <td>Fire Damper</td>
-              <td>09/01/2024</td>
-              <td>Tim Kantor UPDK</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
           </table>
         </div>
       
       </div>
     </section>
 
-    <!-- Modal Edit Jadwal -->
-    <div class="modal fade" id="modalTambahJadwal" tabindex="-1" aria-labelledby="modalTambahJadwal" aria-hidden="true">
+     <!-- Modal Edit Jadwal -->
+     <div class="modal fade" id="modalTambahJadwal" tabindex="-1" aria-labelledby="modalTambahJadwal" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">

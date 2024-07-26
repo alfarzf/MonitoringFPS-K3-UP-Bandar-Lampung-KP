@@ -31,6 +31,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script defer src="<?= base_url('assets/js/chart.js'); ?>"></script>
   <script defer src="<?= base_url('assets/js/chart2.js'); ?>"></script>
+  <script defer src="<?= base_url('assets/js/chart3.js'); ?>"></script>
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -60,28 +61,28 @@
     <ul class="sidebar-nav" id="sidebar-nav">
   
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('/')?>">
+        <a class="nav-link" href="<?= base_url('/admin')?>">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li>
   
       <li class="nav-item">
-        <a class="nav-link" href="kelola-data-petugas.html">
+        <a class="nav-link" href="<?= base_url('admin/petugas')?>">
           <i class="bi bi-person"></i>
           <span>Kelola Data Petugas</span>
         </a>
       </li>
   
       <li class="nav-item">
-        <a class="nav-link" href="kelola-data-alat.html">
+        <a class="nav-link" href="<?= base_url('admin/alat')?>">
           <i class="bi bi-menu-button-wide"></i>
           <span>Kelola Data Alat</span>
         </a>
       </li>
   
       <li class="nav-item">
-        <a class="nav-link" href="kelola-jadwal-pemeriksaan.html">
+        <a class="nav-link" href="<?= base_url('admin/jadwal')?>">
           <i class="bi bi-layout-text-window-reverse"></i>
           <span>Kelola Jadwal Pemeriksaan</span></i>
         </a>

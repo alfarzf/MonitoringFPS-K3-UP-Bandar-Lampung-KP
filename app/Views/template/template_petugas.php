@@ -29,9 +29,9 @@
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script defer src="<?= base_url('assets/js/chart.js'); ?>"></script>
-  <script defer src="<?= base_url('assets/js/chart2.js'); ?>"></script>
-  <script defer src="<?= base_url('assets/js/chart3.js'); ?>"></script>
+  <script defer src="<?php #base_url('assets/js/chart.js'); ?>"></script>
+  <script defer src="<?php #base_url('assets/js/chart2.js'); ?>"></script>
+  <script defer src="<?php #base_url('assets/js/chart3.js'); ?>"></script>
 
   <!-- =======================================================
   * Template Name: NiceAdmin
