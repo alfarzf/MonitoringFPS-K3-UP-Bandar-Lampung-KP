@@ -11,7 +11,7 @@
       <div class="container">
       
         <div class="card-table table">
-          <h6>Data Alat Fire Protection System (FPS) dan Personil Tahun 2024</h6>
+          <h6>Data Alat Fire Protection System (FPS) dan Personil di UP Bandar Lampung Tahun 2024</h6>
           <div class="container-filter-button">
           <div class="filter-container">
             <div id="filter_div">
@@ -31,18 +31,6 @@
                 <option value="">Desember</option>
               </select>
             </div>
-            
-            <div id="filter_div">
-              <label for="lokasi-filter">Lokasi: </label>
-              <select id="lokasi-filter">
-                <option value="">Kantor UP BL</option>
-                <option value="">PLTD/G Tarahan</option>
-                <option value="">PLTD Teluk Betung</option>
-                <option value="">PLTD Tegineneng</option>
-                <option value="">PLTA Way Besai</option>
-                <option value="">PLTA Batu Tegi</option>
-              </select>
-            </div>
           </div>
 
           <div class="btn-container">
@@ -56,7 +44,7 @@
             <tr class="header1">
               <td rowspan="2">No.</td>
               <td rowspan="2">Aspek</td>
-              <th colspan="6">Kondisi Alat Kantor UP dan ULPL Mei 2024</th>
+              <th colspan="6">Jumlah Alat Fire Protection System (FPS) dan personil di UP Bandar Lampung</th>
               <td rowspan="2">Total</td>
               <td rowspan="2">Aksi</td>
             </tr>
@@ -768,6 +756,7 @@
       </section> -->
 
 <!-- Modal Tambah Alat -->
+<!-- Modal Tambah Alat -->
 <div class="modal fade" id="modalTambahAlat" tabindex="-1" aria-labelledby="modalTambahAlatLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -784,6 +773,7 @@
                     <label for="nama_alat" class="form-label">Nama Alat</label>
                     <input type="text" class="form-control" id="inama_alat" placeholder="">
                   </div>
+
                       <div class="col-md-3 mb-3">
                         <label for="total_alat" class="form-label">Total Alat Keseluruhan</label>
                         <input type="text" class="form-control" id="total_alat">
@@ -836,20 +826,11 @@
                   <label for="nama_alat" class="form-label">Nama Alat</label>
                   <input type="text" class="form-control" id="inama_alat" placeholder="">
                 </div>
-                <div class="row">
-                  <div class="col-md-3 mb-3">
-                    <label for="kondisi_baik" class="form-label">Kondisi Baik</label>
-                    <input type="text" class="form-control" id="kondisi_baik">
-                  </div>
-                  <div class="col-md-3 mb-3">
-                    <label for="kondisi_buruk" class="form-label">Kondisi Rusak</label>
-                    <input type="text" class="form-control" id="kondisi_buruk">
-                  </div>
+
                   <div class="col-md-3 mb-3">
                     <label for="total_alat" class="form-label">Total Alat Keseluruhan</label>
                     <input type="text" class="form-control" id="total_alat">
                   </div>
-                </div>
     
                 <div class="col-md-6 mb-3">
                   <label for="inputlokasi" class="form-label">Lokasi</label>
@@ -901,6 +882,6 @@
                 
           </div>
     </div>
-
+    
 <?= $this->endSection() ?>
   <!-- </main>End #main -->

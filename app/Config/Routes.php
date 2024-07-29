@@ -9,9 +9,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('/', [Home::class ,'index']);
 // $routes->get('/', 'Home::index');
 // Petugas
-$routes->get('/', [PetugasController::class ,'index']);
+
 $routes->get('/petugas', [PetugasController::class ,'index']);
 $routes->get('/petugas/dashboard', [PetugasController::class ,'index']);
 $routes->post('/petugas/laporan', [PetugasController::class ,'laporan_create']);
