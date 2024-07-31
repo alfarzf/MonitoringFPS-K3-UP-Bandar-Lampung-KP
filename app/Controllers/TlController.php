@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\LaporanModel;
 use App\Models\AlatModel;
+use App\Models\PetugasModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -14,10 +15,12 @@ class TlController extends BaseController
 {
     public $laporanModel;
     public $alatModel;
+    public $petugasModel;
 
     public function __construct(){
         $this->laporanModel = new LaporanModel();
         $this->alatModel = new AlatModel();
+        $this->petugasModel = new PetugasModel();
     }
 
     public function index()
@@ -89,11 +92,21 @@ class TlController extends BaseController
     }
 
     public function jadwal(){
+        $user = auth()->user();
+        $userId = $user->id;
+        $petugas = $this->petugasModel->getPetugas($userId);
 
         $data = [
             'title' => 'Jadwal Pemeriksaan',
             'jadwal' => $this->alatModel->getJadwal(null, $m=1, $lokasi=1)
         ];
+        if($this->request->getPost()){
+            $m = $this->request->getPost('bulan');
+            $lokasi = $this->request->getPost('lokasi');
+            // dd($m);
+            $data['jadwal'] = $this->alatModel->getJadwal(null, $m , $lokasi);
+        }
+        // dd($data['jadwal']);
         // dd($data);
         return view('tl/jadwal-pemeriksaan', $data);
     }
@@ -102,7 +115,6 @@ class TlController extends BaseController
 
         $data = [
             'title' => 'Daftar Petugas',
-            // 'laporan' => $this->alatModel->getLaporan()
         ];
         // dd($data);
         return view('tl/jadwal-pemeriksaan', $data);

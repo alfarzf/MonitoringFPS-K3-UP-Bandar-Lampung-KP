@@ -29,6 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="<?php #base_url('assets/js/chart.js'); ?>"></script>
   <script defer src="<?php #base_url('assets/js/chart2.js'); ?>"></script>
   <script defer src="<?php #base_url('assets/js/chart3.js'); ?>"></script>
@@ -70,7 +71,7 @@
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url('petugas/laporan')?>">
         <i class="bi bi-menu-button-wide"></i>
-        <span>Laporan Data Alat</span>
+        <span>Laporan Kondisi Alat</span>
       </a>
     </li>
 
@@ -81,13 +82,13 @@
       </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="pages-login.html">
+      <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalHapusPetugas">
         <i class="bi bi-box-arrow-right"></i>
         <span>Keluar</span>
       </a>
     </li>
 </ul>
-</aside><!-- End Sidebar-->w
+</aside><!-- End Sidebar-->
 
 <?= $this->renderSection('content') ?>
 <footer class="text-center">
@@ -163,6 +164,25 @@
   </footer>
   </main><!-- End #main -->
 
+  <div class="modal fade" id="modalHapusPetugas" tabindex="-1" aria-labelledby="modalHapusPetugas" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalHapusPetugas">Logout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body">
+            <p>Anda yakin ingin logout?</p>
+          </div>
+          <div class="modal-footer">
+            <a href="<?= url_to('logout')?>" type="button" class="btn btn-primary" style="width: 252px;">Iya</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
   <!-- ======= Footer ======= -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

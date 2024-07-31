@@ -12,7 +12,7 @@ class AlatModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','nama', 'jumlah', 'lokasi'];
+    protected $allowedFields    = ['id', 'nama', 'jumlah', 'lokasi'];
 
     protected bool $allowEmptyInserts = false;
 
@@ -44,14 +44,21 @@ class AlatModel extends Model
         $this->insert($data);
     }
 
+    public function updateAlat($data, $lokasi, $nama){
+        $this->set('jumlah', $data)
+        ->where('lokasi', $lokasi)
+        ->where('nama', $nama)
+        ->update();
+    }
+
     public function getLaporan($id=null, $m, $lokasi){
         // if($m != null){
         //     return $this->select('alat.id, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('MONTH(laporan.tanggal_periksa)', $m)->findAll();
         // }
         if($id != null){
-            return $this->select('laporan.id, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('laporan.id', $id)->findAll();
+            return $this->select('alat.id AS ID Alat, laporan.id AS ID Laporan, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('laporan.id', $id)->orderBy('alat.id', 'ASC')->findAll();
         }
-        return $this->select('alat.id, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.')', 'left')->where('alat.lokasi='.$lokasi)->findAll();
+        return $this->select('alat.id AS ID Alat, alat.nama, laporan.id AS ID Laporan, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.')', 'left')->where('alat.lokasi='.$lokasi)->orderBy('alat.id', 'ASC')->findAll();
     }
 
     public function getDataLaporan($nama=null, $m=null, $lokasi=null){
@@ -73,14 +80,21 @@ class AlatModel extends Model
 
     public function getAlat($id=null, $nama=null, $lokasi=null){
         if($id != null){
-            return $this->select('alat.*, lokasi.nama_lokasi')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.id', $id)->findAll();
-        }elseif($nama != null){
-            return $this->select('alat.*, lokasi.nama_lokasi')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.nama', $nama)->findAll();
+            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.id', $id)->findAll();
         }
-        elseif($lokasi != null){
-            return $this->select('alat.*, lokasi.nama_lokasi')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.lokasi', $lokasi)->findAll();
+        if($nama != null){
+            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.nama', $nama)->orderBy('lokasi.id', 'ASC')->findAll();
+        }
+        if($lokasi != null){
+            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.lokasi', $lokasi)->findAll();
         }
         return $this->select('alat.nama, alat.jumlah, lokasi.nama_lokasi')->join('lokasi', 'alat.lokasi = lokasi.id')->findAll();
+    }
+
+    public function getNama(){
+        return $this->distinct()
+                    ->select('nama')
+                    ->findAll();
     }
 
     public function getTotalRasio($m, $lokasi)
@@ -183,8 +197,13 @@ class AlatModel extends Model
         return $result->total_rasio;
     }
 
-    public function getJadwal($nama=null, $m, $lokasi)
+    public function getJadwal($nama=null, $m, $lokasi=null)
     {
+        if($lokasi == null){
+            return $this->select('alat.id, alat.nama, jadwal.tanggal_periksa AS jadwal_tanggal_periksa, alat.jumlah, jadwal.id AS jadwal_id')
+            ->join('jadwal', 'jadwal.nama_alat = alat.nama AND (jadwal.tanggal_periksa IS NULL OR MONTH(jadwal.tanggal_periksa) = '.$m.')', 'left')
+            ->groupBy('alat.nama')->orderBy('alat.id', 'ASC')->findAll();
+    }
         if($nama != null){
                 return $this->select('
                 alat.nama,

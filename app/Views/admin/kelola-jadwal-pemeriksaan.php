@@ -17,408 +17,58 @@
           <div class="container-filter-button">
             <div class="filter-container">
               <div id="filter_div">
+              <form method="post" action="<?= base_url('/admin/jadwal')?>" style="margin-top: 0; margin-bottom:6px;">
                 <label for="bulan-filter">Waktu: </label>
-                <select id="bulan-filter">
-                  <option value="">Januari</option>
-                  <option value="">Februari</option>
-                  <option value="">Maret</option>
-                  <option value="">April</option>
-                  <option value="">Mei</option>
-                  <option value="">Juni</option>
-                  <option value="">Juli</option>
-                  <option value="">Agustus</option>
-                  <option value="">September</option>
-                  <option value="">Oktober</option>
-                  <option value="">November</option>
-                  <option value="">Desember</option>
+                <select id="bulan-filter" name="bulan" onchange="this.form.submit();">
+                <option value="">Pilih Bulan</option>
+                    <option value="1">Januari</option>
+                    <option value="2">Februari</option>
+                    <option value="3">Maret</option>
+                    <option value="4">April</option>
+                    <option value="5">Mei</option>
+                    <option value="6">Juni</option>
+                    <option value="7">Juli</option>
+                    <option value="8">Agustus</option>
+                    <option value="9">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
                 </select>
-              </div>
-            
-              <div id="filter_div">
-                <label for="lokasi-filter">Lokasi: </label>
-                <select id="lokasi-filter">
-                  <option value="">Kantor UP BL</option>
-                  <option value="">PLTD/G Tarahan</option>
-                  <option value="">PLTD Teluk Betung</option>
-                  <option value="">PLTD Tegineneng</option>
-                  <option value="">PLTA Way Besai</option>
-                  <option value="">PLTA Batu Tegi</option>
-                </select>
+                <button type="submit" style="display:none;">Filter</button>
+            </form>
               </div>
             </div>
           
-            <div class="btn-container">
+            <!-- <div class="btn-container">
               <button type="button" class="btn btn-primary btn-smaller" data-bs-toggle="modal" data-bs-target="#modalTambahJadwal">
                 Tambah Jadwal
               </button>
-            </div>
+            </div> -->
           </div>
-      
           <table class="tabel-jadwal">
             <tr class="header1">
               <th>No.</th>
               <th>Nama Alat</th>
               <th>Jadwal Pemeriksaan</th>
-              
-              <th>Status</th>
               <th>Aksi</th>
             </tr>
+            <?php $no=1; ;foreach($jadwal as $jad){ ?>
             <tr>
-              <td>1.</td>
-              <td>APAT</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
+              <td><?= $no++ ?></td>
+              <td><?= $jad['nama'] ?></td>
+              <td><?= $jad['jadwal_tanggal_periksa'] ?></td>
+              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal" data-nama_alat="<?= $jad['nama'] ?>"
+              data-jadwal_id="<?= $jad['jadwal_id'] ?>"><i
                   class="fas fa-edit"></i></button>
               </button></td>
             </tr>
-            <tr>
-              <td>2.</td>
-              <td>APAR/APAB</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>3.</td>
-              <td>Box Hydrant Outdoor</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>4.</td>
-              <td>Box Hydrant Indoor</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>5.</td>
-              <td>Jockey Pump</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>6.</td>
-              <td>ELectric Pump</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>7.</td>
-              <td>Emergency Diesel Pump</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>8.</td>
-              <td>Emergency Sea Water Pump</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>9.</td>
-              <td>Portable Pump</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>10.</td>
-              <td>Sprinkle System</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>11.</td>
-              <td>Gas Sppression system (CO2/Clean Agent)</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>12.</td>
-              <td>Foam System</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>13.</td>
-              <td>Water Spray/Water Mist</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>14.</td>
-              <td>Chemical Dust Suppression</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>15.</td>
-              <td>Fire Prevention System (Sergi)</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>16.</td>
-              <td>Panel Alarm System</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>17.</td>
-              <td>Heat Detector</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>18.</td>
-              <td>Smoke Detector</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>19.</td>
-              <td>Flame Detector</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>20.</td>
-              <td>Gas Detector</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>21.</td>
-              <td>Vaccum Dust Collector</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>22.</td>
-              <td>Vaccum Truck</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>23.</td>
-              <td>Fire Truck (Mobil Damkar)</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>24.</td>
-              <td>Self-Contain Breathing Apparatus (SCBA)</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>25.</td>
-              <td>Ambulance</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>26.</td>
-              <td>Ambulance</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>27.</td>
-              <td>Tangga Kebakaran</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>28.</td>
-              <td>Tempat Berhimpun/ Assembly Point</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>29.</td>
-              <td>Lampu Penerangan Darurat</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>30.</td>
-              <td>Tanda Petunjuk Arah Jalan Keluar</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>31.</td>
-              <td>Pressurized Fan</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>32.</td>
-              <td>Smoke Extract Fan dan Intake Fan</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>33.</td>
-              <td>Air Handling Unit (AHU)</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>34.</td>
-              <td>Fire Damper</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
-            <tr>
-              <td>35.</td>
-              <td>Fire Damper</td>
-              <td>09/01/2024</td>
-              <td>Belum diperiksa</td>
-              <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditJadwal"><i
-                    class="fas fa-edit"></i></button>
-                </button></td>
-            </tr>
+            <?php } ?>
+            
           </table>
         </div>
       
       </div>
     </section>
-
-     <!-- Modal Edit Jadwal -->
-    <div class="modal fade" id="modalTambahJadwal" tabindex="-1" aria-labelledby="modalTambahJadwal" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalTambahJadwal">Tambah Jadwal Pemeriksaan</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-    
-          <div class="modal-body">
-            <div class="form-input-data">
-              <form class="container-fluid">
-                <div class="col-md-15 mb-3">
-                  <label for="nama_petugas" class="form-label">Nama Alat</label>
-                  <input type="text" class="form-control" id="nama_petugas" placeholder="">
-                </div>
-    
-                <div class="col-md-15 mb-3">
-                  <label for="jadwal_pemeriksaan" class="form-label">Jadwal Pemeriksaan</label>
-                  <input type="date" class="form-control" id="jadwal_pemeriksaan" placeholder="">
-                </div>
-    
-                <div class="col-md-15 mb-3">
-                  <label for="nama_petugas" class="form-label">Nama Petugas</label>
-                  <input type="text" class="form-control" id="nama_petugas" placeholder="">
-                </div>
-                <div class="btn-container btn-smaller">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Modal Edit Jadwal -->
     <div class="modal fade" id="modalEditJadwal" tabindex="-1" aria-labelledby="modalEditJadwal" aria-hidden="true">
@@ -428,26 +78,22 @@
             <h5 class="modal-title" id="modalEditJadwal">Edit Jadwal Pemeriksaan</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-    
           <div class="modal-body">
             <div class="form-input-data">
-              <form class="container-fluid">
+              <form class="container-fluid" id="formLaporan" action="<?= base_url('/admin/jadwal/store') ?>" method="post">
+                <input type="hidden" name="jadwal_id" id="jadwal_id">
                 <div class="col-md-15 mb-3">
                   <label for="nama_petugas" class="form-label">Nama Alat</label>
-                  <input type="text" class="form-control" id="nama_petugas" placeholder="">
+                  <input type="text" class="form-control" id="nama_alat" placeholder="" name="nama_alat" required>
                 </div>
     
                 <div class="col-md-15 mb-3">
                   <label for="jadwal_pemeriksaan" class="form-label">Jadwal Pemeriksaan</label>
-                  <input type="date" class="form-control" id="jadwal_pemeriksaan" placeholder="">
+                  <input type="date" class="form-control" id="jadwal_pemeriksaan" placeholder="" name="jadwal_pemeriksaan" required>
                 </div>
     
-                <div class="col-md-15 mb-3">
-                  <label for="nama_petugas" class="form-label">Nama Petugas</label>
-                  <input type="text" class="form-control" id="nama_petugas" placeholder="">
-                </div>
                 <div class="btn-container btn-smaller">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn btn-primary" id="saveBtn">Simpan</button>
                 </div>
               </form>
             </div>
@@ -455,4 +101,44 @@
         </div>
       </div>
     </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script>
+  $(document).ready(function() {
+    $('#saveBtn').on('click', function(e) {
+      e.preventDefault();
+        
+      var formData = $('#formLaporan').serialize();
+      console.log(formData);
+
+      $.ajax({
+        url: '<?= base_url('/admin/jadwal/store') ?>', // URL to your controller method
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
+          $('.text-danger').html(''); // Clear previous errors
+          if (response.errors) {
+            alert('Gagal');
+          } else {
+            // Success handling: close the modal, show a success message, etc.
+            $('#modalEditJadwal').modal('hide');
+            alert('Berhasil Menambahkan Jadwal');
+            window.location.reload();
+            // Optionally, reload the page or refresh the data
+          }
+        }
+      });
+    });
+  });
+</script> -->
+
+<script>
+  document.querySelectorAll('.btn-warning').forEach(button => {
+  button.addEventListener('click', function() {
+    document.getElementById('nama_alat').value = this.getAttribute('data-nama_alat');
+    document.getElementById('jadwal_id').value = this.getAttribute('data-jadwal_id');
+  });
+});
+</script>
 <?= $this->endSection() ?>

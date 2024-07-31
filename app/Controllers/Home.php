@@ -19,4 +19,7 @@ class Home extends BaseController
             return redirect()->to('/petugas');
         }
     }
+    public function login() {
+        return view('pages-login');
+    }
 }

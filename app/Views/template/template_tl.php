@@ -48,7 +48,7 @@
  <header id="header" class="header fixed-top d-flex align-items-center">
 
 <div class="d-flex align-items-center justify-content-between">
-  <a href="dashboard-user.html" class="logo d-flex align-items-center">
+  <a href="#" class="logo d-flex align-items-center">
     <img src="<?= base_url('assets/img/logo_plnnp.jpg') ?>" alt="">
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -81,11 +81,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages-login.html">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Keluar</span>
-            </a>
-        </li>
+      <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalHapusPetugas">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Keluar</span>
+      </a>
+    </li>
 
         <!-- <li class="nav-item">
             <a class="nav-link" href="<?php //base_url('/tl/petugas')?>">
@@ -169,6 +169,25 @@
         <!-- Copyright -->
   </footer>
   </main><!-- End #main -->
+  <div class="modal fade" id="modalHapusPetugas" tabindex="-1" aria-labelledby="modalHapusPetugas" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalHapusPetugas">Logout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body">
+            <p>Anda yakin ingin logout?</p>
+          </div>
+          <div class="modal-footer">
+            <a href="<?= url_to('logout')?>" type="button" class="btn btn-primary" style="width: 252px;">Iya</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
 
   <!-- ======= Footer ======= -->
 

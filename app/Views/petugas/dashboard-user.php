@@ -1,6 +1,5 @@
 <?= $this->extend('template/template_petugas')?>
 <?= $this->section('content')?>
-<?php ?>
 <main id="main" class="main">
 
 <div class="pagetitle">

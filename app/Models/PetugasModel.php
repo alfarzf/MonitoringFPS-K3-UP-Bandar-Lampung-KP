@@ -42,8 +42,16 @@ class PetugasModel extends Model
 
     public function getPetugas($id=null) {
         if($id != null){
-            return $this->select('users.id, users.nama, users.username')->join('lokasi' ,'lokasi.id = users.id_lokasi')->where('users.id', $id)->findAll();
+            return $this->select('users.id, users.nama, users.username, users.id_lokasi, lokasi.nama_lokasi')->join('lokasi' ,'lokasi.id = users.id_lokasi')->where('users.id', $id)->findAll();
         }
-        return $this->select('users.id, users.nama, users.username, lokasi.nama_lokasi')->join('lokasi' ,'lokasi.id = users.id_lokasi')->findAll();
+        return $this->select('users.id, users.nama, users.username, users.id_lokasi, lokasi.nama_lokasi')->join('lokasi' ,'lokasi.id = users.id_lokasi')->findAll();
+    }
+
+    public function updatePetugas($data, $id){
+        $this->update($id, $data);
+    }
+
+    public function deletePetugas($id){
+        return $this->delete($id);
     }
 }

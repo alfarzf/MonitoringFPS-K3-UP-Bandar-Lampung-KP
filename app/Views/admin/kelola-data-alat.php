@@ -14,7 +14,7 @@
           <h6>Data Alat Fire Protection System (FPS) dan Personil di UP Bandar Lampung Tahun 2024</h6>
           <div class="container-filter-button">
           <div class="filter-container">
-            <div id="filter_div">
+            <!-- <div id="filter_div">
               <label for="bulan-filter">Waktu: </label>
               <select id="bulan-filter">
                 <option value="">Januari</option>
@@ -30,14 +30,14 @@
                 <option value="">November</option>
                 <option value="">Desember</option>
               </select>
-            </div>
+            </div> -->
           </div>
 
-          <div class="btn-container">
+          <!-- <div class="btn-container">
             <button type="button" class="btn btn-primary btn-smaller" data-bs-toggle="modal" data-bs-target="#modalTambahAlat">
               Tambah Alat
             </button>
-          </div>
+          </div> -->
         </div>
           
           <table class="tabel-kelola-alat">
@@ -63,687 +63,43 @@
               <td colspan="2">Peralatan Sistem Manual Fire Protection</td>
               <td colspan="22"></td>
             </tr>
-            <tr>
-              <td>1.</td>
-              <td>APAT</td>
-              <td>0</td>
-              <td>4</td>
-              <td>2</td>
-              <td>6</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>APAR/APAB</td>
-              <td>20</td>
-              <td>39</td>
-              <td>42</td>
-              <td>47</td>
-              <td>49</td>
-              <td>26</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>3.</td>
-              <td>Box Hydrant Outdoor</td>
-              <td>3</td>
-              <td>7</td>
-              <td>7</td>
-              <td>6</td>
-              <td>3</td>
-              <td>5</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>4.</td>
-              <td>Box Hydrant Indoor</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>2</td>
-              <td>11</td>
-              <td></td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">Peralatan Sistem Fire Pump</td>
-              <td colspan="22"></td>
-            </tr>
-            <tr>
-              <td>5.</td>
-              <td>Jockey Pump</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>6.</td>
-              <td>ELectric Pump</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>7.</td>
-              <td>Emergency Diesel Pump</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>8.</td>
-              <td>Emergency Sea Water Pump</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>9.</td>
-              <td>Portable Pump</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
+            <?php $no=1; foreach($laporan as $lapor){ $jumlah=0; ?>
+            <?php if($lapor[0]['nama']=="Jockey Pump"){
+              echo '<tr><td colspan="2">Peralatan Sistem Fire Pump</td><td colspan="22"></td></tr>';
+            }if($lapor[0]['nama']=="Sprinkle System"){
+              echo '<tr>
               <td colspan="2">Automation Protection</td>
               <td colspan="22"></td>
-            </tr>
-            <tr>
-              <td>10.</td>
-              <td>Sprinkle System</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>11.</td>
-              <td>Gas Sppression system (CO2/Clean Agent)</td>
-              <td>3</td>
-              <td>12</td>
-              <td>0</td>
-              <td>1</td>
-              <td>61</td>
-              <td>10</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>12.</td>
-              <td>Foam System</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>3</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>13.</td>
-              <td>Water Spray/Water Mist</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>87</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>14.</td>
-              <td>Chemical Dust Suppression</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>6</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>15.</td>
-              <td>Fire Prevention System (Sergi)</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
+            </tr>';
+            }if($lapor[0]['nama']=="Panel Alarm System"){
+              echo '<tr>
               <td colspan="2">Alarm and Detection System</td>
               <td colspan="22"></td>
-            </tr>
-            <tr>
-              <td>16.</td>
-              <td>Panel Alarm System</td>
-              <td>5</td>
-              <td>0</td>
-              <td>0</td>
-              <td>17</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>17.</td>
-              <td>Heat Detector</td>
-              <td>5</td>
-              <td>0</td>
-              <td>0</td>
-              <td>17</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>18.</td>
-              <td>Smoke Detector</td>
-              <td>34</td>
-              <td>7</td>
-              <td>10</td>
-              <td>9</td>
-              <td>93</td>
-              <td>10</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>19.</td>
-              <td>Flame Detector</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>36</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>20.</td>
-              <td>Gas Detector</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>21.</td>
-              <td>Vaccum Dust Collector</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>22.</td>
-              <td>Vaccum Truck</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>23.</td>
-              <td>Fire Truck (Mobil Damkar)</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>24.</td>
-              <td>Self-Contain Breathing Apparatus (SCBA)</td>
-              <td>4</td>
-              <td>2</td>
-              <td>3</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>25.</td>
-              <td>Ambulance</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
+            </tr>';
+            }if($lapor[0]['nama']=="Pintu Kebakaran"){
+              echo '<tr>
               <td class="nama-aspek" colspan="25" bgcolor="#3EC1F3">Sarana Penyelamatan Jiwa</td>
-            </tr>
-            <tr>
-              <td>26.</td>
-              <td>Pintu Kebakaran</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>0</td>
-              <td>3</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>27.</td>
-              <td>Tangga Kebakaran</td>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
-              <td>2</td>
-              <td>2</td>
-              <td>2</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>28.</td>
-              <td>Tempat Berhimpun/ Assembly Point</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>2</td>
-              <td>1</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>29.</td>
-              <td>Lampu Penerangan Darurat</td>
-              <td>0</td>
-              <td>4</td>
-              <td>0</td>
-              <td>3</td>
-              <td>8</td>
-              <td>15</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>30.</td>
-              <td>Tanda Petunjuk Arah Jalan Keluar</td>
-              <td>3</td>
-              <td>15</td>
-              <td>30</td>
-              <td>2</td>
-              <td>14</td>
-              <td>19</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>31.</td>
-              <td>Pressurized Fan</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>32.</td>
-              <td>Smoke Extract Fan dan Intake Fan</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>33.</td>
-              <td>Air Handling Unit (AHU)</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>3</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>34.</td>
-              <td>Fire Damper</td>
-              <td>2</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
-                </button>
-              </td>
-            </tr>
-            <tr>
+            </tr>';
+            }if($lapor[0]['nama']=="Kesiapan Personil"){
+              echo '<tr>
               <td class="nama-aspek" colspan="25" bgcolor="#3EC1F3">Kesiapan Personil Tanggap Darurat</td>
-            </tr>
+            </tr>';
+            }
+             ?>
             <tr>
-              <td>35.</td>
-              <td>Kesiapan Personil</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>0</td>
+              <td><?= $no ?></td>
+              <td><?= $lapor[0]['nama'] ?></td>
+              <?php for($i=0; $i < count($lapor); $i++){ ?>
+              <td><?= $lapor[$i]['jumlah'] ?></td>
+              <?php $jumlah+=$lapor[$i]['jumlah'];} ?>
+              <td><?= $jumlah ?></td>
               <td>
-                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"><i
-                    class="fas fa-edit"></i></button>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapusAlat"><i
-                    class="fas fa-trash-alt"></i></button>
+                <button type="button" style="margin-bottom: 15px;" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditAlat"
+                data-nama_alat="<?= $lapor[0]['nama'] ?>"><i class="fas fa-edit"></i></button>
                 </button>
               </td>
             </tr>
+            <?php $no++; } ?>
           </table>
         </div>
       
@@ -755,7 +111,6 @@
       <!-- <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       </section> -->
 
-<!-- Modal Tambah Alat -->
 <!-- Modal Tambah Alat -->
 <div class="modal fade" id="modalTambahAlat" tabindex="-1" aria-labelledby="modalTambahAlatLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -808,52 +163,44 @@
         </div>
       </div>
     </div>
+</div>
 
     <!-- Modal Edit Alat -->
-    <div class="modal fade" id="modalEditAlat" tabindex="-1" aria-labelledby="modalEditAlatLabel" aria-hidden="true">
+  <div class="modal fade" id="modalEditAlat" tabindex="-1" aria-labelledby="modalEditAlatLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalEditAlatLabel">Edit Data Alat</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-    
-    
           <div class="modal-body">
             <div class="form-input-data">
-              <form class="container-fluid">
+              <form class="container-fluid" action="<?= base_url('admin/alat/update') ?>" method="post" id="formLaporanEdit">
+    
                 <div class="col-md-15 mb-3">
                   <label for="nama_alat" class="form-label">Nama Alat</label>
-                  <input type="text" class="form-control" id="inama_alat" placeholder="">
+                  <input type="text" class="form-control" id="nama_alat" placeholder="" name="nama_alat">
                 </div>
 
                   <div class="col-md-3 mb-3">
-                    <label for="total_alat" class="form-label">Total Alat Keseluruhan</label>
-                    <input type="text" class="form-control" id="total_alat">
+                    <label for="jumlah" class="form-label">Total Alat Keseluruhan</label>
+                    <input type="text" class="form-control" id="jumlah" name="jumlah">
+                    <div id="jumlah_error" class="text-danger"></div>
                   </div>
     
-                <div class="col-md-6 mb-3">
-                  <label for="inputlokasi" class="form-label">Lokasi</label>
-                  <select id="inputlokasi" class="form-control">
-                    <option selected>Pilih</option>
-                    <option value="">Kantor UP BL</option>
-                    <option value="">PLTD/G Tarahan</option>
-                    <option value="">PLTD Teluk Betung</option>
-                    <option value="">PLTD Tegineneng</option>
-                    <option value="">PLTA Way Besai</option>
-                    <option value="">PLTA Batu Tegi</option>
+                  <div class="col-md-15 mb-3">
+                  <label for="lokasi" class="form-label">Unit Kerja</label>
+                  <select class="form-control" id="lokasi" name="lokasi">
+                    <option value="1">UP Bandar Lampung</option>
+                    <option value="2">PLTD/G Tarahan</option>
+                    <option value="3">PLTD Teluk Betung</option>
+                    <option value="4">PLTD Tegineneng</option>
+                    <option value="5">PLTA Way Besai</option>
+                    <option value="6">PLTA Batu Tegi</option>
                   </select>
                 </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Data yang dimasukan adalah benar
-                    </label>
-                  </div>
-                </div>
                 <div class="btn-container btn-smaller">
-                  <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" id="saveBtnEdit" class="btn">Simpan</button>
                 </div>
               </form>
             </div>
@@ -861,27 +208,45 @@
         </div>
       </div>
     </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  document.querySelectorAll('.btn-warning').forEach(button => {
+  button.addEventListener('click', function() {
+    document.getElementById('nama_alat').value = this.getAttribute('data-nama_alat');
+  });
+});
+</script>
+<script>
+  $(document).ready(function() {
+    $('#saveBtnEdit').on('click', function(e) {
+      e.preventDefault();
+        // Check if the sum of Kondisi Baik and Kondisi Buruk equals Total Alat
+      var formData = $('#formLaporanEdit').serialize();
+      console.log(formData);
 
-    <!-- Modal Hapus Data Alat -->
-    <div class="modal fade" id="modalHapusAlat" tabindex="-1" aria-labelledby="modalHapusAlatLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalHapusAlat">Hapus Data Alat</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-        
-                  <div class="modal-body">
-                    <p>Anda yakin menghapus alat ini?</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Iya</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                  </div>
-                </div>
-                
-          </div>
-    </div>
-    
+      $.ajax({
+        url: '<?= base_url('admin/alat/update') ?>', // URL to your controller method
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
+          $('.text-danger').html(''); // Clear previous errors
+          if (response.errors) {
+            if (response.errors.jumlah) {
+              $('#jumlah_error').html(response.errors.jumlah);
+            }
+          }else {
+            // Success handling: close the modal, show a success message, etc.
+            $('#modalEditAlat').modal('hide');
+            alert('Form submitted successfully');
+            window.location.reload();
+            // Optionally, reload the page or refresh the data
+          }
+        }
+      });
+    });
+  });
+</script>
 <?= $this->endSection() ?>
   <!-- </main>End #main -->

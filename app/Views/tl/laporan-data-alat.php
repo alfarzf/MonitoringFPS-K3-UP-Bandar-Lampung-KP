@@ -27,9 +27,10 @@
 
 <div class="container-filter-button">
 <div id="filter_div">
-<form method="post" action="<?= base_url('/tl/laporan')?>">
+<form method="post" action="<?= base_url('/tl/laporan')?>" style="margin-top: 0;">
                 <label for="bulan-filter">Waktu: </label>
-                <select id="bulan-filter" name="bulan">
+                <select id="bulan-filter" name="bulan" onchange="this.form.submit();">
+                <option value="">Pilih Bulan</option>
                     <option value="1">Januari</option>
                     <option value="2">Februari</option>
                     <option value="3">Maret</option>
@@ -43,7 +44,7 @@
                     <option value="11">November</option>
                     <option value="12">Desember</option>
                 </select>
-                <button type="submit">Filter</button>
+                <button type="submit" style="display:none;">Filter</button>
             </form>
 </div>
 

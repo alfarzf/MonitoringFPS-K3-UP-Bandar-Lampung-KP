@@ -12,7 +12,7 @@ class JadwalModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id', 'nama_alat', 'tanggal_periksa'];
 
     protected bool $allowEmptyInserts = false;
 
@@ -39,4 +39,13 @@ class JadwalModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function saveJadwal($data){
+        $this->insert($data);
+    }
+
+    public function updateJadwal($data, $id)
+    {
+        return $this->update($id,$data);
+    }
 }

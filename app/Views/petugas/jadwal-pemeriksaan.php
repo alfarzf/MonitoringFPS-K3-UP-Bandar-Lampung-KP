@@ -12,24 +12,28 @@
       <div class="container">
       
         <div class="card-table table">
-          <h6>Jadwal Pemeriksaan Alat Fire Protection System (FPS) dan Personil Kantor UP Bandar Lampung Tahun 2024</h6>
+          <h6>Jadwal Pemeriksaan Alat Fire Protection System (FPS) dan Personil <?= $jadwal[0]['nama_lokasi'] ?> Tahun 2024</h6>
           <div class="filter-container">
             <div id="filter_div">
-              <label for="bulan-filter">Waktu: </label>
-              <select id="bulan-filter">
-                <option value="">Januari</option>
-                <option value="">Februari</option>
-                <option value="">Maret</option>
-                <option value="">April</option>
-                <option value="">Mei</option>
-                <option value="">Juni</option>
-                <option value="">Juli</option>
-                <option value="">Agustus</option>
-                <option value="">September</option>
-                <option value="">Oktober</option>
-                <option value="">November</option>
-                <option value="">Desember</option>
-              </select>
+            <form method="post" action="<?= base_url('/petugas/jadwal')?>" style="margin-top: 0; margin-bottom:6px;">
+                <label for="bulan-filter">Waktu: </label>
+                <select id="bulan-filter" name="bulan" onchange="this.form.submit();">
+                <option value="">Pilih Bulan</option>
+                    <option value="1">Januari</option>
+                    <option value="2">Februari</option>
+                    <option value="3">Maret</option>
+                    <option value="4">April</option>
+                    <option value="5">Mei</option>
+                    <option value="6">Juni</option>
+                    <option value="7">Juli</option>
+                    <option value="8">Agustus</option>
+                    <option value="9">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
+                <button type="submit" style="display:none;">Filter</button>
+            </form>
           </div>
           </div>
       

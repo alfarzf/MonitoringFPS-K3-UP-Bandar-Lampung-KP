@@ -29,6 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="<?= base_url('assets/js/chart.js'); ?>"></script>
   <script defer src="<?= base_url('assets/js/chart2.js'); ?>"></script>
   <script defer src="<?= base_url('assets/js/chart3.js'); ?>"></script>
@@ -48,7 +49,7 @@
  <header id="header" class="header fixed-top d-flex align-items-center">
 
 <div class="d-flex align-items-center justify-content-between">
-  <a href="dashboard-user.html" class="logo d-flex align-items-center">
+  <a href="<?= base_url('admin') ?>" class="logo d-flex align-items-center">
     <img src="<?= base_url('assets/img/logo_plnnp.jpg') ?>" alt="">
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -89,11 +90,11 @@
       </li>
   
       <li class="nav-item">
-        <a class="nav-link" href="pages-login.html">
-          <i class="bi bi-box-arrow-right"></i>
-          <span>Keluar</span>
-        </a>
-      </li>
+      <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalLogout">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Keluar</span>
+      </a>
+    </li>
     </ul>
   </aside><!-- End Sidebar-->
 
@@ -170,6 +171,25 @@
         <!-- Copyright -->
   </footer>
   </main><!-- End #main -->
+  <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="modalLogout" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLogout">Logout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+    
+          <div class="modal-body">
+            <p>Anda yakin ingin logout?</p>
+          </div>
+          <div class="modal-footer">
+            <a href="<?= url_to('logout')?>" type="button" class="btn btn-primary" style="width: 252px;">Iya</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
 
   <!-- ======= Footer ======= -->
 
