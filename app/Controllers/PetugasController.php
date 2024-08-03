@@ -82,7 +82,7 @@ class PetugasController extends BaseController
         //     'title' => 'Laporan',
         //     'laporan' => $this->alatModel->getLaporan(null, 1 , 1)
         // ];
-        // dd($data['laporan']);
+        // dd($data['user']);
         return view('petugas/laporan-kondisi-alat', $data);
     }
 
@@ -93,8 +93,8 @@ class PetugasController extends BaseController
         'jadwal_periksa' => 'required',
         'jumlah_baik' => 'required|numeric',
         'jumlah_buruk' => 'required|numeric',
-        'keterangan' => 'required|max_length[500]',
-        'gridCheck' => 'required'
+        // 'keterangan' => 'required|max_length[500]',
+        // 'gridCheck' => 'required'
     ]);
     if ($validation->withRequest($this->request)->run()) {
         // Form is valid, handle data processing
@@ -104,6 +104,7 @@ class PetugasController extends BaseController
             $data=[
                 'id_alat' => $this->request->getVar('id_alat'),
                 'NID' => $this->request->getVar('NID'),
+                'id_lokasi' => $this->request->getVar('id_lokasi'),
                 'tanggal_periksa' => $this->request->getVar('jadwal_periksa'),
                 'jumlah_baik' => $this->request->getVar('jumlah_baik'),
                 'jumlah_buruk' => $this->request->getVar('jumlah_buruk'),
@@ -112,6 +113,7 @@ class PetugasController extends BaseController
             $this->laporanModel->saveLaporan($data);
         }else{
             $data=[
+                'tanggal_periksa' => $this->request->getVar('jadwal_periksa'),
                 'jumlah_baik' => $this->request->getVar('jumlah_baik'),
                 'jumlah_buruk' => $this->request->getVar('jumlah_buruk'),
                 'catatan' => $this->request->getVar('keterangan'),

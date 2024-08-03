@@ -59,9 +59,9 @@
                                     <td><?= $no++ ?></td>
                                     <td><?= $jad['nama']?></td>
                                     <td><?= $jad['nama_lokasi']?></td>
-                                    <td><?= $jad['jadwal_tanggal_periksa']?></td>
+                                    <td><?= $jad['tanggal_periksa']?></td>
                                     <!-- <td><?php # $jad['nama_lokasi']?></td> -->
-                                    <td><?= (is_null($jad['laporan_tanggal_periksa']) && is_null($jad['total_input'])) ? 'Belum Diperiksa' : 'Sudah Diperiksa'; ?></td>
+                                    <td><?= (is_null($jad['tanggal_periksa']) && is_null($jad['total_input'])) ? 'Belum Diperiksa' : 'Sudah Diperiksa'; ?></td>
                                 </tr>
                                 <?php } ?>
                     </table>

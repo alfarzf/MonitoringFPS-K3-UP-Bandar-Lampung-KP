@@ -10,7 +10,7 @@
 
     <section class="section">
         <div class="card-table table">
-          <h6>Monitoring Kesiapan Fire Protection System Kantor <?= $laporan[0]['nama_lokasi'] ?> Tahun 2024</h6>
+          <h6>Monitoring Kesiapan Fire Protection System Kantor <?= $user[0]['nama_lokasi'] ?> Tahun 2024</h6>
           <div class="filter-container" style="margin-bottom: 0;">
             <div id="filter_div">
             <form method="post" action="<?= base_url('/petugas/laporan')?>" style="margin-top: 0;">
@@ -41,10 +41,11 @@
               <th>No.</th>
               <th>Lokasi</th>
               <th>Nama Alat</th>
-              <th>Jadwal Pemeriksaan</th>
+              
               <th>Kondisi Baik</th>
               <th>Kondisi Rusak</th>
               <th>Total Alat Keseluruhan</th>
+              <th>Jadwal Pemeriksaan</th>
               <th>Keterangan</th>
               <th>Status</th>
               <th>Aksi</th>
@@ -54,12 +55,13 @@
             <?php $no=1; foreach($laporan as $lapor){ ?>
             <tr>
               <td><?= $no++ ?></td>
-              <td><?= $lapor['nama_lokasi'] ?></td>
+              <td><?= $lapor['nama_lokasi'] ?? $user[0]['nama_lokasi'] ?></td>
               <td><?= $lapor['nama']?></td>
-              <td><?= $lapor['tanggal_periksa']?></td>
+              
               <td><?= $lapor['jumlah_baik']?></td>
               <td><?= $lapor['jumlah_buruk']?></td>
-              <td><?= $lapor['jumlah']?></td>
+              <td><?= $lapor['total_input']?></td>
+              <td><?= $lapor['tanggal_periksa']?></td>
               <td><?php if($lapor['total_input']==null){
                 echo 'Belum Diisi';
               }
@@ -68,12 +70,12 @@
                 echo 'Belum Diperiksa';
               }
                 else echo "Sudah Diperiksa" ?></td>
-              <td><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalLaporan" data-nama_petugas="<?= $lapor['nama_lokasi'] ?>"
+              <td><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalLaporan" data-nama_petugas="<?= $lapor['nama_lokasi'] ?? $user[0]['nama_lokasi'] ?>"
                     data-nama_alat="<?= $lapor['nama'] ?>"
                     data-jadwal_periksa="<?= $lapor['tanggal_periksa'] ?>"
                     data-jumlah_baik="<?= $lapor['jumlah_baik'] ?>"
                     data-jumlah_buruk="<?= $lapor['jumlah_buruk'] ?>"
-                    data-total_alat="<?= $lapor['jumlah'] ?>"
+                    data-total_alat="<?= $lapor['total_input'] ?>"
                     data-keterangan="<?= $lapor['catatan'] ?>"
                     data-id_laporan="<?= $lapor['ID Laporan'] ?>"
                     data-id_alat="<?= $lapor['ID Alat'] ?>">
@@ -106,6 +108,7 @@
           <!-- <input type="hidden" name="_method" value='PUT'> -->
           <input type="hidden" name="id_laporan" id="id_laporan">
           <input type="hidden" name="id_alat" id="id_alat">
+          <input type="hidden" name="id_lokasi" id="id_lokasi" value="<?= $user[0]['id_lokasi'] ?>">
           <input type="hidden" name="NID" id="NID" value="<?= $user[0]['username'] ?>">
             <div class="col-md-15 mb-3">
               <label for="nama_petugas" class="form-label">Lokasi</label>
@@ -117,7 +120,7 @@
             </div>
             <div class="col-md-15 mb-3">
               <label for="jadwal_periksa" class="form-label">Tanggal Pemeriksaan</label>
-              <input type="text" class="form-control" id="jadwal_periksa" name="jadwal_periksa">
+              <input type="text" class="form-control" id="jadwal_periksa" name="jadwal_periksa" placeholder="ex: 2024-10-01">
               <div id="jadwal_periksa_error" class="text-danger"></div>
             </div>
             <div class="row">
@@ -165,15 +168,15 @@
   $(document).ready(function() {
     $('#saveBtn').on('click', function(e) {
       e.preventDefault();
-        var jumlahBaik = parseInt($('#jumlah_baik').val()) || 0;
-        var jumlahBuruk = parseInt($('#jumlah_buruk').val()) || 0;
-        var totalAlat = parseInt($('#total_alat').val()) || 0;
+        // var jumlahBaik = parseInt($('#jumlah_baik').val()) || 0;
+        // var jumlahBuruk = parseInt($('#jumlah_buruk').val()) || 0;
+        // var totalAlat = parseInt($('#total_alat').val()) || 0;
         
-        // Check if the sum of Kondisi Baik and Kondisi Buruk equals Total Alat
-        if (jumlahBaik + jumlahBuruk !== totalAlat) {
-            alert('Jumlah Kondisi Baik dan Kondisi Buruk harus sama dengan Total Alat.');
-            return false;
-        }
+        // // Check if the sum of Kondisi Baik and Kondisi Buruk equals Total Alat
+        // if (jumlahBaik + jumlahBuruk !== totalAlat) {
+        //     alert('Jumlah Kondisi Baik dan Kondisi Buruk harus sama dengan Total Alat.');
+        //     return false;
+        // }
       var formData = $('#formLaporan').serialize();
       console.log(formData);
 
@@ -203,7 +206,7 @@
           } else {
             // Success handling: close the modal, show a success message, etc.
             $('#modalLaporan').modal('hide');
-            alert('Form submitted successfully');
+            // alert('Form submitted successfully');
             window.location.reload();
             // Optionally, reload the page or refresh the data
           }

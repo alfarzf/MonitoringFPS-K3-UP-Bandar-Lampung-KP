@@ -12,7 +12,7 @@ class AlatModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'nama', 'jumlah', 'lokasi'];
+    protected $allowedFields    = ['id', 'nama'];
 
     protected bool $allowEmptyInserts = false;
 
@@ -44,21 +44,18 @@ class AlatModel extends Model
         $this->insert($data);
     }
 
-    public function updateAlat($data, $lokasi, $nama){
-        $this->set('jumlah', $data)
-        ->where('lokasi', $lokasi)
-        ->where('nama', $nama)
-        ->update();
+    public function updateAlat($data, $id){
+        $this->update($id, $data);
     }
 
     public function getLaporan($id=null, $m, $lokasi){
         // if($m != null){
-        //     return $this->select('alat.id, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('MONTH(laporan.tanggal_periksa)', $m)->findAll();
+        //     return $this->select('alat.id, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'laporan.id_lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('MONTH(laporan.tanggal_periksa)', $m)->findAll();
         // }
         if($id != null){
-            return $this->select('alat.id AS ID Alat, laporan.id AS ID Laporan, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('laporan.id', $id)->orderBy('alat.id', 'ASC')->findAll();
+            return $this->select('alat.id AS ID Alat, laporan.id AS ID Laporan, alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'laporan.id_lokasi = lokasi.id')->join('alat', 'alat.id=laporan.id_alat', 'left')->where('laporan.id', $id)->orderBy('alat.id', 'ASC')->findAll();
         }
-        return $this->select('alat.id AS ID Alat, alat.nama, laporan.id AS ID Laporan, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.')', 'left')->where('alat.lokasi='.$lokasi)->orderBy('alat.id', 'ASC')->findAll();
+        return $this->select('alat.id AS ID Alat, alat.nama, laporan.id AS ID Laporan, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, lokasi.nama_lokasi, laporan.catatan')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.') AND laporan.id_lokasi ='. $lokasi, 'left')->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')->orderBy('alat.id', 'ASC')->findAll();
     }
 
     public function getDataLaporan($nama=null, $m=null, $lokasi=null){
@@ -68,33 +65,43 @@ class AlatModel extends Model
             laporan.tanggal_periksa, 
             laporan.jumlah_baik, 
             laporan.jumlah_buruk,
-            (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, 
-            alat.jumlah, 
+            (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input,
             lokasi.nama_lokasi, 
             laporan.catatan, UPPER(MONTHNAME(laporan.tanggal_periksa)) AS month_name')
-        ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.')', 'left')
+        ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) ='.$m.')', 'left')
+        ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
         ->where('alat.nama', $nama)->findAll();
         }
-        return $this->select('alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, alat.jumlah, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'alat.lokasi = lokasi.id')->join('laporan', 'alat.id=laporan.id_alat', 'left')->where('IF(laporan.tanggal_periksa IS NOT NULL, MONTH(laporan.tanggal_periksa)=1, 1) AND alat.lokasi=1')->findAll();
+        return $this->select('alat.nama, laporan.tanggal_periksa, laporan.jumlah_baik, laporan.jumlah_buruk, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input, lokasi.nama_lokasi, laporan.catatan')->join('lokasi', 'laporan.id_lokasi = lokasi.id')->join('laporan', 'alat.id=laporan.id_alat', 'left')->where('IF(laporan.tanggal_periksa IS NOT NULL, MONTH(laporan.tanggal_periksa)=1, 1) AND laporan.id_lokasi=1')->findAll();
     }
 
     public function getAlat($id=null, $nama=null, $lokasi=null){
         if($id != null){
-            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.id', $id)->findAll();
+            return $this->select('alat.*')->where('alat.id', $id)->findAll();
         }
         if($nama != null){
-            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.nama', $nama)->orderBy('lokasi.id', 'ASC')->findAll();
+            return $this->select('alat.*')->where('alat.nama', $nama)->findAll();
         }
-        if($lokasi != null){
-            return $this->select('alat.*, lokasi.nama_lokasi, lokasi.id')->join('lokasi', 'alat.lokasi = lokasi.id')->where('alat.lokasi', $lokasi)->findAll();
-        }
-        return $this->select('alat.nama, alat.jumlah, lokasi.nama_lokasi')->join('lokasi', 'alat.lokasi = lokasi.id')->findAll();
+        return $this->select('alat.*')->orderBy('alat.id', 'ASC')->findAll();
     }
 
     public function getNama(){
         return $this->distinct()
                     ->select('nama')
                     ->findAll();
+    }
+    public function getRasio($data, $m, $lokasi, $rasio){
+        return $this->select("
+        CASE 
+            WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN $rasio 
+            ELSE ROUND((SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*".$rasio.", 2) 
+        END AS rasio
+    ")
+    ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
+    ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+    ->where('laporan.id_lokasi', $lokasi)
+    ->whereIn('alat.nama', $data)
+    ->findAll();
     }
 
     public function getTotalRasio($m, $lokasi)
@@ -106,13 +113,14 @@ class AlatModel extends Model
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*15 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 15
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*15 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
             ->whereIn('alat.nama', ['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor'])
             ->getCompiledSelect();
 
@@ -120,13 +128,14 @@ class AlatModel extends Model
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*30 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 30
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*30 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
             ->whereIn('alat.nama', ['Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump'])
             ->getCompiledSelect();
 
@@ -134,27 +143,29 @@ class AlatModel extends Model
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*15 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 15 
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*15 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
-            ->whereIn('alat.nama', ['Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)'])
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
+            ->whereIn('alat.nama', ['Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)'])
             ->getCompiledSelect();
 
         // Subquery 4
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*15 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 15 
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*15 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
             ->whereIn('alat.nama', ['Panel Alarm System', 'Heat Detector', 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance'])
             ->getCompiledSelect();
 
@@ -162,27 +173,29 @@ class AlatModel extends Model
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*10 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 10 
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*10 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
-            ->whereIn('alat.nama', ['Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper'])
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
+            ->whereIn('alat.nama', ['Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper'])
             ->getCompiledSelect();
 
         // Subquery 6
         $subqueries[] = $this->db->table('alat')
             ->select("
                 CASE 
-                    WHEN SUM(alat.jumlah) = 0 THEN 1 
-                    ELSE (SUM(laporan.jumlah_baik) / SUM(alat.jumlah))*15 
+                    WHEN SUM(laporan.jumlah_baik + laporan.jumlah_buruk) = 0 THEN 15 
+                    ELSE (SUM(laporan.jumlah_baik) / SUM(laporan.jumlah_baik + laporan.jumlah_buruk))*15 
                 END AS rasio
             ")
-            ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')
+            
             ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-            ->where('alat.lokasi', $lokasi)
+            ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')
+            ->where('laporan.id_lokasi', $lokasi)
             ->whereIn('alat.nama', ['Kesiapan Personil'])
             ->getCompiledSelect();
 
@@ -197,42 +210,10 @@ class AlatModel extends Model
         return $result->total_rasio;
     }
 
-    public function getJadwal($nama=null, $m, $lokasi=null)
-    {
-        if($lokasi == null){
-            return $this->select('alat.id, alat.nama, jadwal.tanggal_periksa AS jadwal_tanggal_periksa, alat.jumlah, jadwal.id AS jadwal_id')
-            ->join('jadwal', 'jadwal.nama_alat = alat.nama AND (jadwal.tanggal_periksa IS NULL OR MONTH(jadwal.tanggal_periksa) = '.$m.')', 'left')
-            ->groupBy('alat.nama')->orderBy('alat.id', 'ASC')->findAll();
-    }
-        if($nama != null){
-                return $this->select('
-                alat.nama,
-                jadwal.tanggal_periksa as jadwal_tanggal_periksa,
-                laporan.tanggal_periksa as laporan_tanggal_periksa, 
-                laporan.jumlah_baik, 
-                laporan.jumlah_buruk,
-                (laporan.jumlah_baik + laporan.jumlah_buruk) as total_input, 
-                alat.jumlah, 
-                lokasi.nama_lokasi, 
-                laporan.catatan')
-                ->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-                ->join('jadwal', 'jadwal.nama_alat = alat.nama AND (jadwal.tanggal_periksa IS NULL OR MONTH(jadwal.tanggal_periksa) = '.$m.')', 'left')->where('lokasi.id', $lokasi)->where('jadwal.nama_alat', $nama)
-                ->findAll();
-        }
-
-        return $this->select('
-        alat.nama,
-        jadwal.tanggal_periksa as jadwal_tanggal_periksa,
-        laporan.tanggal_periksa as laporan_tanggal_periksa, 
-        laporan.jumlah_baik, 
-        laporan.jumlah_buruk,
-        (laporan.jumlah_baik + laporan.jumlah_buruk) as total_input, 
-        alat.jumlah, 
-        lokasi.nama_lokasi, 
-        laporan.catatan
-    ')->join('lokasi', 'alat.lokasi = lokasi.id', 'left')->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
-    ->join('jadwal', 'jadwal.nama_alat = alat.nama AND (jadwal.tanggal_periksa IS NULL OR MONTH(jadwal.tanggal_periksa) = '.$m.')', 'left')->where('lokasi.id', $lokasi)
-    ->findAll();
-        // return $query->getResult();
+    public function getJadwal($m=null, $lokasi=null){
+        return $this->select('alat.nama, laporan.*, lokasi.nama_lokasi, (laporan.jumlah_baik + laporan.jumlah_buruk) AS total_input')
+        ->join('laporan', 'laporan.id_alat = alat.id AND (laporan.tanggal_periksa IS NULL OR MONTH(laporan.tanggal_periksa) = '.$m.')', 'left')
+        ->join('lokasi', 'laporan.id_lokasi = lokasi.id', 'left')->where('(laporan.id_lokasi IS NULL OR laporan.id_lokasi = '.$lokasi.')')
+        ->findAll();
     }
 }

@@ -75,11 +75,11 @@
       </a>
     </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('petugas/jadwal')?>">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="<?php #base_url('petugas/jadwal')?>">
           <i class="bi bi-layout-text-window-reverse"></i><span>Jadwal Pemeriksaan Alat</span></i>
         </a>
-      </li>
+      </li> -->
 
     <li class="nav-item">
       <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalHapusPetugas">

@@ -73,13 +73,13 @@ class AdminController extends BaseController
         // $alat=$this->alatModel->getNama();
         $data = [
             'title' => 'Data Alat',
-            'laporan' => []
+            'laporan' => $this->alatModel->getAlat()
         ];
         // dd($this->alatModel->getAlat(null, "APAT", null));
-        foreach($alat as $al){
-            $data['laporan'][]=$this->alatModel->getAlat(null, $al, null);
+        // foreach($alat as $al){
+            // $data['laporan'][]=$this->alatModel->getAlat();
             // dd($data[$al]);
-        }
+        // }
         // dd($data);
         return view('admin/kelola-data-alat', $data);
     }
@@ -161,20 +161,30 @@ class AdminController extends BaseController
         
 
     }
+    public function alat_insert(){
+        $data=[
+            'nama' => $this->request->getVar('nama_alat')
+        ];
+        $this->alatModel->saveAlat($data);
+        return redirect()->to('admin/alat');
+    }
 
     public function alat_update(){
         $validation = \Config\Services::validation();
 
     $validation->setRules([
-        'jumlah' => 'required|numeric'
+        'nama_alat' => 'required'
     ]);
     // dd($this->request->getPost());
     if ($validation->withRequest($this->request)->run()) {
         // Form is valid, handle data processing
         // For example, save data to the database
         // Return a success message
-        
-        $this->alatModel->updateAlat($this->request->getVar('jumlah'), $this->request->getVar('lokasi'), $this->request->getVar('nama_alat'));
+        $data=[
+            'nama' => $this->request->getVar('nama_alat')
+        ];
+        $this->alatModel->updateAlat($data, $this->request->getVar('id_alat'));
+
         return $this->response->setJSON(['success' => true]);
     } else {
         // Validation failed, return errors

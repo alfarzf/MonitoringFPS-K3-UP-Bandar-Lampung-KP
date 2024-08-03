@@ -49,7 +49,7 @@
 </div>
 
 <div class="btn-container">
-<a href="<?= base_url('/tl/laporan/export/' . $bulan) ?>" class="btn btn-primary btn-smaller">
+<a href="<?= base_url('/tl/laporan/export/' . $no_bulan) ?>" class="btn btn-primary btn-smaller">
     Cetak Laporan
 </a>
 </div>
@@ -58,7 +58,7 @@
 <tr class="header1">
     <td rowspan="3">No.</td>
     <td rowspan="3">Aspek</td>
-    <th colspan="12">Kondisi Alat Kantor UP dan ULPL Mei 2024</th>
+    <th colspan="12">Kondisi Alat Kantor UP dan ULPL <?= $bulan ?> 2024</th>
     <th rowspan="3">Total</th>
 </tr>
 <tr class="header2">
@@ -99,387 +99,80 @@
 </tr>
 <tr>
     <th colspan="2">Peralatan Sistem Manual Fire Protection</th>
-    <th colspan="2">15%</th>
-    <th colspan="2">15%</th>
-    <th colspan="2">15%</th>
-    <th colspan="2">15%</th>
-    <th colspan="2">15%</th>
-    <th colspan="2">15%</th>
-    <th></th>
+    <?php foreach($alat1 as $al1){ ?>
+    <th colspan="2"><?= $al1[0]['rasio'].'%' ?></th>
+    <?php } ?>
 </tr>
-            <tr>
-        <td>1.</td>
-        <td><?= $alat[0][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[0] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-    </tr>
-    <tr>
-    <td>2.</td>
-    <td><?= $alat[1][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[1] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td><?= $alat[2][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[2] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>4.</td>
-                <td><?= $alat[3][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[3] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <th colspan="2">Peralatan Sistem Fire Pump</th>
-                <th colspan="2">35%</th>
-                <th colspan="2">35%</th>
-                <th colspan="2">35%</th>
-                <th colspan="2">35%</th>
-                <th colspan="2">35%</th>
-                <th colspan="2">35%</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>5.</td>
-                <td><?= $alat[4][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[4] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>6.</td>
-                <td><?= $alat[5][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[5] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>7.</td>
-                <td><?= $alat[6][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[6] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>8.</td>
-                <td><?= $alat[7][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[7] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>9.</td>
-                <td><?= $alat[8][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[8] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-            <th colspan="2">Automation Protection</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th></th>
-        </tr>
-            <tr>
-                <td>10.</td>
-                <td><?= $alat[9][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[9] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>11.</td>
-                <td><?= $alat[10][0]['nama'] ?></td>
-        <?php $jumlah=0; foreach($alat[10] as $lapor){ ?>
-            <td><?= $lapor['jumlah_baik'] ?></td>
-            <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-        <?php } ?>
-        <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>12.</td>
-                <td><?= $alat[11][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[11] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
+<?php $no=1; for($j=0; $j < 35; $j++){ ?>
+    <?php if($alat[$j][0]['nama']=="Jockey Pump"){
+              echo '<tr>
+                <th colspan="2">Peralatan Sistem Fire Pump</th>';
+                foreach($alat2 as $al2){ ?>
+                    <th colspan="2"><?= $al2[0]['rasio'].'%' ?></th>
                     <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>13.</td>
-                <td><?= $alat[12][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[12] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
+                <?php echo '</tr>';
+            }if($alat[$j][0]['nama']=="Sprinkle System"){
+              echo '<tr>
+            <th colspan="2">Automation Protection</th>';
+            foreach($alat3 as $al3){ ?>
+                    <th colspan="2"><?= $al3[0]['rasio'].'%' ?></th>
                     <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>14.</td>
-                <td><?= $alat[13][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[13] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
+                <?php echo '</tr>';
+            }if($alat[$j][0]['nama']=="Panel Alarm System"){
+              echo '<tr>
+            <th colspan="2">Alarm and Detection System</th>';
+            foreach($alat4 as $al4){ ?>
+                    <th colspan="2"><?= $al4[0]['rasio'].'%' ?></th>
                     <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>15.</td>
-                <td><?= $alat[14][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[14] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-            <th colspan="2">Alarm and Detection System</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th></th>
-        </tr>
-            <tr>
-                <td>16.</td>
-                <td><?= $alat[15][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[15] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>17.</td>
-                <td><?= $alat[16][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[16] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>18.</td>
-                <td><?= $alat[17][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[17] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>19.</td>
-                <td><?= $alat[18][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[18] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>20.</td>
-                <td><?= $alat[19][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[19] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>21.</td>
-                <td><?= $alat[20][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[20] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>22.</td>
-                <td><?= $alat[21][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[21] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>23.</td>
-                <td><?= $alat[22][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[22] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>24.</td>
-                <td><?= $alat[23][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[23] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>25.</td>
-                <td><?= $alat[24][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[24] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
+                <?php echo '</tr>';
+            }if($alat[$j][0]['nama']=="Pintu Kebakaran"){
+              echo '<tr>
             <td class="nama-aspek" colspan="25" bgcolor="#3EC1F3">Sarana Penyelamatan Jiwa</td>
         </tr>
         <tr style="background-color: darkgrey;">
             <th></th>
-            <th></th>
-            <th colspan="2">10%</th>
-            <th colspan="2">10%</th>
-            <th colspan="2">10%</th>
-            <th colspan="2">10%</th>
-            <th colspan="2">10%</th>
-            <th colspan="2">10%</th>
-            <th></th>
-        </tr>
-            
-            <tr>
-                <td>26.</td>
-                <td><?= $alat[25][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[25] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
+            <th></th>';
+            foreach($alat5 as $al5){ ?>
+                    <th colspan="2"><?= $al5[0]['rasio'].'%' ?></th>
                     <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>27.</td>
-                <td><?= $alat[26][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[26] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>28.</td>
-                <td><?= $alat[27][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[27] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>29.</td>
-                <td><?= $alat[28][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[28] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>30.</td>
-                <td><?= $alat[29][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[29] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>31.</td>
-                <td><?= $alat[30][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[30] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>32.</td>
-                <td><?= $alat[31][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[31] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>33.</td>
-                <td><?= $alat[32][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[32] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
-                <td>34.</td>
-                <td><?= $alat[33][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[33] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
-                    <?php } ?>
-                <td><?= $jumlah ?></td>
-            </tr>
-            <tr>
+                <?php
+                echo '<th></th>'; 
+                echo '</tr>';
+
+            }if($alat[$j][0]['nama']=="Kesiapan Personil"){
+              echo '<tr>
             <td class="nama-aspek" colspan="25" bgcolor="#3EC1F3">Kesiapan Personil Tanggap Darurat</td>
         </tr>
         <tr style="background-color: darkgrey;">
             <th></th>
-            <th></th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th colspan="2">15%</th>
-            <th></th>
-        </tr>
-            <tr>
-                <td>35.</td>
-                <td><?= $alat[34][0]['nama'] ?></td>
-                <?php $jumlah=0; foreach($alat[34] as $lapor){ ?>
-                <td><?= $lapor['jumlah_baik'] ?></td>
-                <td><?= $lapor['jumlah_buruk']; $jumlah += $lapor['jumlah_baik'] + $lapor['jumlah_buruk']?></td>
+            <th></th>';
+            foreach($alat6 as $al6){ ?>
+                    <th colspan="2"><?= $al6[0]['rasio'].'%' ?></th>
                     <?php } ?>
-                <td><?= $jumlah ?></td>
+                <?php
+                echo '<th></th>'; 
+                echo '</tr>';
+            }
+             ?>
+    <tr>
+        <td><?= $no++ ?></td>
+        <td><?= $alat[$j][0]['nama'] ?? "Kosong" ?></td>
+        <?php $jumlah=0; for($i=0; $i < 6; $i++){ ?>
+            <td><?= $alat[$j][$i]['jumlah_baik'] ?? 0 ?></td>
+            <td><?= $alat[$j][$i]['jumlah_buruk'] ?? 0; $jumlah += ($alat[$j][$i]['jumlah_baik'] ?? 0) + ($alat[$j][$i]['jumlah_buruk'] ?? 0) ?></td>
+        <?php } ?>
+        <td><?= $jumlah ?? 0 ?></td>
+    </tr>
+    <?php } ?>
+    </tr>
+            <th colspan="2">Total Kesiapan</th>
+            <th colspan="2"><?= ($UP ?? 0) . '%' ?></th>
+            <th colspan="2"><?= ($Tarahan ?? 0) . '%' ?></th>
+            <th colspan="2"><?= ($Teluk ?? 0) . '%' ?></th>
+            <th colspan="2"><?= ($Tegi ?? 0) . '%' ?></th>
+            <th colspan="2"><?= ($Way ?? 0) . '%' ?></th>
+            <th colspan="2"><?= ($Batu ?? 0) . '%' ?></th>
+            <th>%</th>
             </tr>
         </table>
     </div>

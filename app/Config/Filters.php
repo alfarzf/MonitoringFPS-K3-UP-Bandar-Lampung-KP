@@ -35,7 +35,7 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
         // ...
-        'session' => ['except' => ['login*', 'register', 'auth/a/*', 'logout']],
+        'session' => ['except' => ['login*', 'auth/a/*', 'logout']],
         ],
         'after' => [
             'toolbar',

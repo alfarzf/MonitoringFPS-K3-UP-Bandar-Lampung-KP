@@ -63,31 +63,67 @@ class TlController extends BaseController
         return view('tl/dashboard-user', $data);
     }
     public function laporan(){
-        // $items = [1,2,3,4,5,6,7,8,9,10,11,12];
-        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
+        $months = [
+            1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
+            5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
+            9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
+        ];
+        $alat1=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor'];
+        $alat2=['Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump'];
+        $alat3=['Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)'];
+        $alat4=['Panel Alarm System', 'Heat Detector', 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance'];
+        $alat5=['Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper'];
+        $alat6=['Kesiapan Personil'];
+
+        $month_num = 1; // Example for January
+        $month_name = $months[$month_num];
+        $m = $this->request->getPost('bulan') ?? 1;
+        $item = 1;
+        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
         $data = [
             'title' => 'Dashboard',
             'alat' => [],
-            'bulan' => 1
+            'bulan' => $months[$m],
+            'no_bulan' => $m,
+            'alat1' => [],
+            'alat2' => [],
+            'alat3' => [],
+            'alat4' => [],
+            'alat5' => [],
+            'alat6' => [],
         ];
+        for($i=1; $i<=6; $i++){
+            $data['alat1'][] = $this->alatModel->getRasio($alat1, $m, $i, 15);
+            $data['alat2'][] = $this->alatModel->getRasio($alat2, $m, $i, 30);
+            $data['alat3'][] = $this->alatModel->getRasio($alat3, $m, $i, 15);
+            $data['alat4'][] = $this->alatModel->getRasio($alat4, $m, $i, 15);
+            $data['alat5'][] = $this->alatModel->getRasio($alat5, $m, $i, 10);
+            $data['alat6'][] = $this->alatModel->getRasio($alat6, $m, $i, 15);
+        }
+        // dd($data);
+
+            $data['UP'] = $this->alatModel->getTotalRasio($m, 1);
+            $data['Tarahan'] = $this->alatModel->getTotalRasio($m, 2);
+            $data['Teluk'] = $this->alatModel->getTotalRasio($m, 3);
+            $data['Tegi'] = $this->alatModel->getTotalRasio($m, 4);
+            $data['Way'] = $this->alatModel->getTotalRasio($m, 5);
+            $data['Batu'] = $this->alatModel->getTotalRasio($m, 6);
+            // dd($data['UP']);
+
         if($this->request->getPost()){
             $m = $this->request->getPost('bulan');
             // dd($m);
             foreach ($alat as $item) {
                 $data['alat'][] = $this->alatModel->getDataLaporan($item, $m=$m);
             }
-            $data['bulan'] = $m;
+            $data['bulan'] = $months[$m];
+            $data['no_bulan'] = $m;
+            // dd($data['alat'][34]);
             return view('tl/laporan-data-alat', $data);
         }
         foreach ($alat as $item) {
             $data['alat'][] = $this->alatModel->getDataLaporan($item, $m=1);
         }
-
-        // $data = [
-        //     'title' => 'Laporan',
-        //     'laporan' => $this->alatModel->getDataLaporan($nama='APAT', $m=1)
-        // ];
-        // dd($data['alat']);
         return view('tl/laporan-data-alat', $data);
     }
 
@@ -98,13 +134,14 @@ class TlController extends BaseController
 
         $data = [
             'title' => 'Jadwal Pemeriksaan',
-            'jadwal' => $this->alatModel->getJadwal(null, $m=1, $lokasi=1)
+            'jadwal' => $this->alatModel->getJadwal($m=1, $lokasi=1)
         ];
         if($this->request->getPost()){
             $m = $this->request->getPost('bulan');
             $lokasi = $this->request->getPost('lokasi');
             // dd($m);
-            $data['jadwal'] = $this->alatModel->getJadwal(null, $m , $lokasi);
+            $data['jadwal'] = $this->alatModel->getJadwal($m , $lokasi);
+            // dd($data);
         }
         // dd($data['jadwal']);
         // dd($data);
@@ -123,7 +160,7 @@ class TlController extends BaseController
     public function export($m){
         // dd($m);
 
-        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
+        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
         $data=[];
         foreach ($alat as $item) {
             $data[] = $this->alatModel->getDataLaporan($item, $m=$m);
@@ -133,7 +170,7 @@ class TlController extends BaseController
     'D22:H22', 'D23:H23', 'D24:H24', 'D25:H25', 'C26:H26', 'I26:J26', 'K26:L26', 'M26:N26', 'O26:P26', 'Q26:R26', 'S26:T26', 'D27:H27', 'D28:H28', 'D29:H29', 'D30:H30', 'D31:H31', 'D32:H32', 'C33:H33', 'I33:J33', 'K33:L33', 'M33:N33', 'O33:P33', 'Q33:R33', 'S33:T33', 'D34:H34', 'D35:H35', 'D36:H36', 'D37:H37', 'D38:H38', 'C39:H39', 'C40:H40', 'C41:H41', 'C42:H42', 'C43:H43', 'B44:H44', 'B45:H45', 'I45:J45', 'K45:L45', 'M45:N45', 'O45:P45', 'Q45:R45', 'S45:T45', 'B46:H46', 'I46:J46', 'K46:L46', 'M46:N46', 'O46:P46', 'Q46:R46', 'S46:T46', 'C47:H47', 'C48:H48', 'C49:H49', 'C50:H50', 'C51:H51', 'C52:H52', 
 'C53:H53', 'C54:H54', 'C55:H55', 'B56:H56', 'B57:H57', 'I57:J57', 'K57:L57', 'M57:N57', 'O57:P57', 'Q57:R57', 'S57:T57', 'B58:H58', 'I58:J58', 'K58:L58', 'M58:N58', 'O58:P58', 'Q58:R58', 'S58:T58', 'B59:H59', 'B60:H60', 'I60:J60', 'K60:L60', 'M60:N60', 'O60:P60', 'Q60:R60', 'S60:T60', 
 'A61:H61', 'A62:H62', 'I62:J62', 'K62:L62', 'M62:N62', 'O62:P62', 'Q62:R62', 'S62:T62'];
-        $isiMergecell=['PT PLN (PERSERO) UNIT INDUK PEMBANGKITAN', 'SUMATERA BAGIAN SELATAN', 'DOKUMEN CATATAN', 'FORM CHECKLIST KESIAPAN SISTEM PROTEKSI KEBAKARAN', 'PEJABAT OPERASIONAL K3', 'NO', 'ASPEK', 'KONDISI UPDK & ULPL - '.$data[0][0]['month_name'].' 2024', 'UPDK', 'PLTD/G TARAHAN', 'PLTD TELUK BETUNG', 'PLTD TEGINENENG', 'PLTA BESAI', 'PLTA BATUTEGI', 'PERALATAN SISTEM FIRE FIGHTING', '75%', '75%', '75%', '75%', '75%', 
+        $isiMergecell=['PT PLN (PERSERO) UNIT INDUK PEMBANGKITAN', 'SUMATERA BAGIAN SELATAN', 'DOKUMEN CATATAN', 'FORM CHECKLIST KESIAPAN SISTEM PROTEKSI KEBAKARAN', 'PEJABAT OPERASIONAL K3', 'NO', 'ASPEK', 'KONDISI UP Bandar Lampung & ULPL - '.$data[0][0]['month_name'].' 2024', 'UP Bandar Lampung', 'PLTD/G TARAHAN', 'PLTD TELUK BETUNG', 'PLTD TEGINENENG', 'PLTA BESAI', 'PLTA BATUTEGI', 'PERALATAN SISTEM FIRE FIGHTING', '75%', '75%', '75%', '75%', '75%', 
     '75%', '15%', '15%', '15%', '15%', '15%', '15%', 'PERALATAN SISTEM MANUAL FIRE PROTECTION', 'APAT', 'APAR & APAB', 'Hydrant :', '  Box Hydrant Outdoor', '  Box Hydrant Indoor', 'PERALATAN SISTEM FIRE PUMP', '30%', '30%', '30%', '30%', '30%', '30%', 'Hydrant Pump :', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'AUTOMATION PROTECTION', '15%', '15%', '15%', '15%', '15%', '15%', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)Foam System', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'ALARM & DETECTION SYSTEM', '15%', 
     '15%', '15%', '15%', '15%', '15%', 'Panel Alarm System', 'Heat Detector', 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Kesiapan Peralatan	', 'Pencapaian Persentase Kesiapan', '73%', '73%', '73%', '73%', '73%', '73%', 'SARANA PENYELAMATAN JIWA', '10%', '10%', '10%', '10%', '10%', '10%', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Peralatan', 
     'Pencapaian Persentase Kesiapan', '10%', '10%', '10%', '10%', '10%', '10%', 'KESIAPAN PERSONIL TANGGAP DARURAT', '15%', '15%', '15%', '15%', '15%', '15%', 'Kesiapan Personil', 'Pencapaian Persentase Kesiapan', '15%', '15%', '15%', '15%', '15%', '15%', 'TOTAL KESIAPAN PERALATAN', 'PERSENTASE KESIAPAN', '98.0%', '98.0%', '98.0%', '98.0%', '98.0%', '98.0%'];
@@ -222,10 +259,10 @@ class TlController extends BaseController
             $index=0;
             for($j=1; $j <= count($row_kondisi); $j++){
                 if($j%2 == 0){
-                    $sheet->setCellValue($row_kondisi[$j-1].$row_isi[$i], $data[$i][$index]['jumlah_buruk'])->getStyle($row_kondisi[$j-1].$row_isi[$i])->applyFromArray($styleArray)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+                    $sheet->setCellValue($row_kondisi[$j-1].$row_isi[$i], $data[$i][$index]['jumlah_buruk'] ?? 0)->getStyle($row_kondisi[$j-1].$row_isi[$i])->applyFromArray($styleArray)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
                     $index++;
                 }else{
-                    $sheet->setCellValue($row_kondisi[$j-1].$row_isi[$i], $data[$i][$index]['jumlah_baik'])->getStyle($row_kondisi[$j-1].$row_isi[$i])->applyFromArray($styleArray)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+                    $sheet->setCellValue($row_kondisi[$j-1].$row_isi[$i], $data[$i][$index]['jumlah_baik'] ?? 0)->getStyle($row_kondisi[$j-1].$row_isi[$i])->applyFromArray($styleArray)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
                 }
             }
         }
@@ -253,44 +290,43 @@ class TlController extends BaseController
     }
 
     public function insert_data_alat(){
-        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
+        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
         // dd($alat);
         $no=1;
-        for ($i = 1; $i <= 6; $i++) {
+        // for ($i = 1; $i <= 6; $i++) {
             foreach ($alat as $al) {
             $data=[
                 'id' => $no++,
                 'nama' => $al,
-                'jumlah' => rand(1, 10),
-                'lokasi' => $i
             ];
             // dd($al);
             $this->alatModel->saveAlat($data);
             }
-        }
+        // }
         $judul=[
             'title' => 'Jadwal'
         ];
-        return view('tl/jadwal-pemeriksaan', $judul);
+        return view('petugas/dashboard-user', $judul);
     }
 
     public function insert_data_laporan(){
-        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Sppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/ Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
+        $alat=['APAT', 'APAR/APAB', 'Box Hydrant Outdoor', 'Box Hydrant Indoor', 'Jockey Pump', 'Electric Pump', 'Emergency Diesel Pump', 'Emergency Sea Water Pump', 'Portable Pump', 'Sprinkle System', 'Gas Suppression system (CO2/Clean Agent)', 'Foam System', 'Water Spray/Water Mist', 'Chemical Dust Suppression', 'Fire Prevention System (Sergi)', 'Panel Alarm System', 'Heat Detector' , 'Smoke Detector', 'Flame Detector', 'Gas Detector', 'Vaccum Dust Collector', 'Vaccum Truck', 'Fire Truck (Mobil Damkar)', 'Self-Contain Breathing Apparatus (SCBA)', 'Ambulance', 'Pintu Kebakaran', 'Tangga Kebakaran', 'Tempat Berhimpun/Assembly Point', 'Lampu Penerangan Darurat', 'Tanda Petunjuk Arah Jalan Keluar', 'Pressurized Fan', 'Smoke Extract Fan dan Intake Fan', 'Air Handling Unit (AHU)', 'Fire Damper', 'Kesiapan Personil'];
         // dd($alat);
         $no=1;
         // $data_alat=$this->alatModel->getAlat(null, null, 1);
 
         // dd($data_alat);
         for ($i = 1; $i <= 6; $i++) {
-            $data_alat=$this->alatModel->getAlat(null, null, $i);
-            foreach ($data_alat as $da) {
+            // $data_alat=$this->alatModel->getAlat(null, null, $i);
+            for ($j = 1; $j <= 35; $j++) {
             $data=[
-                'id_alat' => $da['id'],
+                'id_alat' => $j,
                 'NID' => 123,
+                'id_lokasi' => $i,
                 'tanggal_periksa' => '2024-01-09',
-                'jumlah_baik' => $da['jumlah']-1,
-                'jumlah_buruk' => 1,
-                'catatan' => 'OKE Semua'
+                'jumlah_baik' => 0,
+                'jumlah_buruk' => 0,
+                'catatan' => 'OKE'
             ];
             // dd($al);
             $this->laporanModel->saveLaporan($data);
@@ -298,10 +334,10 @@ class TlController extends BaseController
         }
 
 
-        $judul=[
-            'title' => 'Jadwal'
-        ];
-        return view('tl/jadwal-pemeriksaan', $judul);
+        // $judul=[
+        //     'title' => 'Jadwal'
+        // ];
+        // return view('tl/jadwal-pemeriksaan', $judul);
     }
 
 }
